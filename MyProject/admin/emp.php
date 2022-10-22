@@ -44,9 +44,8 @@
 <div class="container">
     <div class="row col-md-6 col-md-offset-2 custyle">
     <table class="table table-striped custab">
-    <thead>
-    <button class="btn btn-primary btn-xs pull-right" name="add" onclick="window.location.href = 'add_emp.php';">Add new employee</button>
-        <tr>
+    <thead style="background-color: #FFD233 ;">
+    
             <th>FullName</th>
             <th>UserName</th>
             <th>Password</th>
@@ -56,19 +55,23 @@
 
         </tr>
     </thead>
+    
     <?php
                 while($row = mysqli_fetch_assoc($result)){?>
             <tr>
-            <td><?php echo $row['fullname']; ?></td>
+            <td ><?php echo $row['fullname']; ?></td>
                 <td><?php echo $row['username']; ?></td>
                 <td><?php echo $row['password']; ?></td>
                 <td><?php echo $row['role']; ?> </td>
                 <td><?php echo $row['salary']; ?></td>
-                <td class="text-center">  <button class='btn btn-info btn-xs' name="edit" ><span class="glyphicon glyphicon-edit"></span> Edit</button>  <button class="btn btn-danger btn-xs" name="delete"><span class="glyphicon glyphicon-remove"></span> Del</button></td>
-             
+                <td class="text-center">  <button class='btn btn-info btn-xs' name="edit" ><span class="glyphicon glyphicon-edit"></span> Edit</button>  <button class="btn btn-danger btn-xs" name="delete" >
+                <span class="glyphicon glyphicon-remove"></span> Del</button></td>
+            
               </tr>
             <?php }?>
     </table>
+    <button class="btn btn-warning" name="add" onclick="window.location.href = 'add_emp.php';" style="height: 30px; position:relative; left:400px;">Add new employee</button>
+        
     </div>
 </div>
 </body>

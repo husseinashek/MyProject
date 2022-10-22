@@ -32,7 +32,12 @@
 		<input class="span3" name="fullname" placeholder="Full Name" type="text"> 
         <input class="span3" name="username" placeholder="Username" type="text">
         <input class="span3" name="password" placeholder="Password" type="password"> 
-        <input class="span3" name="role" placeholder="role" type="text">
+
+<select class="span3" name="role" id="cars" >
+  <option></option>
+  <option value="call center">call center</option>
+  <option value="data entry">data entry</option>
+</select>
         <input class="span3" name="salary" placeholder="salary" type="text">
         <button name="add" class="btn btn-warning" type="submit">Add Employee</button>
     </form>

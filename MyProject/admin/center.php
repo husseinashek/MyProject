@@ -1,101 +1,9 @@
 <?php
 
- include 'config.php';
- error_reporting(0);
+include 'config.php';
+error_reporting(0);
 
- session_start();
-
- 
-
- if (isset($_POST['search'])){
-
-  
-  $invoice_nb=$_POST['invoice_nb'];
-
-
-  $sql = "SELECT * FROM invoice WHERE invoice_number='$invoice_nb'";
-  $result=mysqli_query($conn,$sql);
-  $row= mysqli_fetch_array($result);
-
-  $invoice_chrg=$row['invoice_charge']." ".$row['currency'];
-  $invoice_nb=$row['invoice_number'];
-  $delivery_chrg=$row['delivery_charge']." ".$row['currency1'];
-  $note=$row['note'];
-  $order=$row['order_status'];
-  $date=$row['insert_date'];
-  
-  if($row['returnn']==0){
-    $return="YES";
-  }
-  else{$return="NO";}
-
-  if($row['breakable']==0){
-    $breakable="YES";
-  }
-  else{$breakable="NO";}
-
-
-
-  
-
-  $sql="SELECT invoice.*, customer.* FROM invoice  INNER JOIN customer ON invoice_number= invoice_ID WHERE invoice_number= '$invoice_nb' ";
-  $result=mysqli_query($conn,$sql);
-  $row= mysqli_fetch_array($result);
-
-  $full_name=$row['full_name'];
-  $primary_phone_number=$row['primary_phone_number'];
-  $secondary_phone_number=$row['secondary_phone_number'];
- 
-
-  $sql="SELECT invoice.*, address1.* FROM invoice  INNER JOIN address1 ON invoice_number= invoice_no WHERE invoice_number= '$invoice_nb' ";
-  $result=mysqli_query($conn,$sql);
-  $row= mysqli_fetch_array($result);
-
-  $region=$row['region'];
-  $city=$row['city'];
-  $street=$row['street'];
-
-  
-  $sql="SELECT invoice.*, supplier.* FROM invoice  INNER JOIN supplier ON supplier_name= full_name WHERE invoice_number= '$invoice_nb' ";
-  $result=mysqli_query($conn,$sql);
-  $row= mysqli_fetch_array($result);
-
-  $full_name1=$row['full_name'];
-  $primary_phone_number1=$row['primary_phone_number'];
-  $region1=$row['region'];
-  
-  
-  
-  
-
-  
-
-  
-
-
-
-
-
-
-
- }
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>
-
-
-
+session_start();?>
 <!doctype html>
 
 <html lang="en">
@@ -193,18 +101,25 @@
 
 
       <!--  Filter-->
-      <div class="container">
+      <div class="container" style="width: 1185px;">
       <form method="POST">
         <div class= " border rounded shadow mt-4">
            
           
-              <legend class="fs-5 mt-3 ms-3" style="text-align: center;">Find order </legend><br><br>
+              <legend class="fs-5 mt-3 ms-3" style="text-align: center;"><b>Find order</b> </legend><br><br>
 
              
               <div class=" row align-items-center ">
 
               <div class=" col d-flex mb-5 me-5 ms-5" >
+
+              <input name="fullname" class="form-control me-2" type="search" placeholder="Supplier Name" aria-label="Search">
+              <div style = "position:relative; left:-80px;">
+              <button name="s_search" class="btn btn-warning" type="submit" >Search</button>
+              </div>
+              <div style = "position:relative; left:4px;">
                 <input name="invoice_nb" class="form-control me-2" type="search" placeholder="Invoice Number" aria-label="Search">
+              </div>
                 <button name="search" class="btn btn-warning" type="submit">Search</button>
               </div>
 
@@ -216,8 +131,85 @@
       </form>
       </div>
 
+      <?php
 
 
+ 
+
+ if (isset($_POST['search'])){
+
+  $full_name=$_POST['fullname'];
+  $invoice_nb=$_POST['invoice_nb'];
+
+
+  $sql = "SELECT * FROM invoice WHERE invoice_number='$invoice_nb'";
+  $result=mysqli_query($conn,$sql);
+  $row= mysqli_fetch_array($result);
+
+  $invoice_chrg=$row['invoice_charge']." ".$row['currency'];
+  $invoice_nb=$row['invoice_number'];
+  $delivery_chrg=$row['delivery_charge']." ".$row['currency1'];
+  $note=$row['note'];
+  $order=$row['order_status'];
+  $date=$row['insert_date'];
+  
+  if($row['returnn']==0){
+    $return="YES";
+  }
+  else{$return="NO";}
+
+  if($row['breakable']==0){
+    $breakable="YES";
+  }
+  else{$breakable="NO";}
+
+
+
+  
+
+  $sql="SELECT invoice.*, customer.* FROM invoice  INNER JOIN customer ON invoice_number= invoice_ID WHERE invoice_number= '$invoice_nb' ";
+  $result=mysqli_query($conn,$sql);
+  $row= mysqli_fetch_array($result);
+
+  $full_name=$row['full_name'];
+  $primary_phone_number=$row['primary_phone_number'];
+  $secondary_phone_number=$row['secondary_phone_number'];
+ 
+
+  $sql="SELECT invoice.*, address1.* FROM invoice  INNER JOIN address1 ON invoice_number= invoice_no WHERE invoice_number= '$invoice_nb' ";
+  $result=mysqli_query($conn,$sql);
+  $row= mysqli_fetch_array($result);
+
+  $region=$row['region'];
+  $city=$row['city'];
+  $street=$row['street'];
+
+  
+  $sql="SELECT invoice.*, supplier.* FROM invoice  INNER JOIN supplier ON supplier_name= full_name WHERE invoice_number= '$invoice_nb' ";
+  $result=mysqli_query($conn,$sql);
+  $row= mysqli_fetch_array($result);
+
+  $full_name1=$row['full_name'];
+  $primary_phone_number1=$row['primary_phone_number'];
+  $region1=$row['region'];
+  
+  
+  
+
+
+
+
+
+
+
+
+?>
+
+
+
+
+
+   <div style= " margin-left: 120px;">
 
       <div class="container mt-5">
      
@@ -268,10 +260,6 @@
             </div>
 
         </div>
-
-
-
-
 
 
 
@@ -379,10 +367,6 @@
 
 
 
-
-
-
-
         </div>
 
 
@@ -394,20 +378,10 @@
         
 
 
-       
-
-
-
-
+    
 
 
         </div>
-
-
-
-
-
-
 
 
 
@@ -424,7 +398,7 @@
 
 
 
-
+    </div>
       
 
 
@@ -437,15 +411,8 @@
 
 
 
-      
-        
-      
-
-
-
-
-
-
 
   </body>
 </html>
+
+<?php }?>

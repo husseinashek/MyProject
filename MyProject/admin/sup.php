@@ -294,11 +294,11 @@ $primary_phone_number=$_POST['primary_phone_number2'];
                     <button name="search" class="btn btn-warning ms-5" type="submit">Search</button>
                     </div>
                     <div class="row mt-5" >
-        <div class="col">
+        <div class="col" style = "position:relative; left:-800px; ">
            <div class="card shadow" style="width: 18rem;">
            <div class="card-body">
             <h5 class="card-title bg-warning border rounded" style="text-align: center;">Supplier Info</h5>
-                    <div class="mt-3">
+                    <div class="mt-3" >
             <p>Supplier Name : <b><?php echo $full_name1; ?> </b></p>
             <p>Primary Phone Number : <b><?php echo $primary_phone_number1; ?> </b></p>
             <p>User Name : <b><?php echo $username1; ?> </b></p>
