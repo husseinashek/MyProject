@@ -6,35 +6,35 @@
  session_start();
 
 
- if (isset($_POST['search'])){
-
-  
-  $invoice_nb=$_POST['invoice_nb'];
-
-
-  $sql = "SELECT * FROM invoice WHERE invoice_number='$invoice_nb'";
-  $result=mysqli_query($conn,$sql);
-  $row=mysqli_fetch_array($result);
-  $invoice=$row['invoice_number'];
-  
-
-  if($_POST['invoice_nb']!=$invoice){
- 
- $error="<p> Not a valid invoice!</p>";}
-  }
-  
-  
-
 
 
  if(isset($_POST['apply'])){
 
-
-  $order=$_POST['status'];
+ 
   
 
-  $sql1="UPDATE invoice SET order_status='$order' WHERE invoice_number='$invoice'";
+
+  $invoice0=$_POST['invoice'];
+
+  $sql = "SELECT * FROM invoice WHERE invoice_number='$invoice0'";
+  $result=mysqli_query($conn,$sql);
+  $row=mysqli_fetch_array($result);
+$invoice=$row['invoice_number'];
+  
+  if($invoice0!=$invoice){
+ 
+    $error="<p> Not a valid invoice!</p>";}
+
+  $order=$_POST['order'];
+  $note=$_POST['note'];
+
+  $sql1="UPDATE invoice SET order_status='$order' WHERE invoice_number= '$invoice0'";
   $result=mysqli_query($conn,$sql1);
+  
+  $sql2="UPDATE invoice SET note='$note' WHERE invoice_number= '$invoice0'";
+  $result=mysqli_query($conn,$sql2);
+  
+  
  }
 
 
@@ -141,10 +141,6 @@
                     <a class="nav-link" href="order.php">Order Status</a>
                   </li>
 
-              <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
             </div>
           </div>
         </div>
@@ -162,33 +158,42 @@
 
 
 
-      <div><?php echo $order; echo $invoice;     ?></div>
+ 
 
 
 
 
       
+      <div class="container" style="width: 900px;  ">
       
-            <form method="POST">
+            <form method="POST" >
 
-            <div class=" col d-flex mt-5 mb-5 me-5 ms-5" >
-                <input name="invoice_nb" class="form-control me-2" type="search" placeholder="Invoice Number" aria-label="Search">
-                <button name="search" class="btn btn-warning" type="submit">Search</button>
+            <div style= " margin-left: 120px; ">
+
+<div class="container mt-5" style="width: 500px; height: 500px; ;">
+
+  <div class="row" style="width: 500px; height: 500px; margin-left: -100px;">
+    
+    <div class="col">
+    <div class="card shadow" style="width: 500px; height: 400px;">
+    <div class="card-body" >
+     <h5 class="card-title bg-warning border rounded" style="text-align: center;">Update Status</h5>
+     <div class="mt-3" >
+      
+
+                <input name="invoice" class="form-control me-2" type="search" placeholder="Invoice Number" aria-label="Search">
+                <input name="note" class="form-control me-2" type="text" placeholder=" Note" aria-label="Note" style="margin-top:10px;">
+               
                 <div><?php echo $error;?></div>
-            </div>
+            
 
             <div class="row ">
-                <div class="col">
-            <div name="invoice_nb" class="border border rounded ">
-               <p  class=" ms-2 mt-2 mb-2"> Invoice Number : <b><?php echo $invoice; ?> </b></p>
-            </div>
-
-            </div>
+                
 
             <div class="col">
 
-              <div class="form-floating ">
-                <select name="status" class="form-select"  id="floatingSelectGrid" aria-label="Floating label select example">
+              <div class="form-floating "style="margin-top:10px">
+                <select name="order" class="form-select"  id="floatingSelectGrid" aria-label="Floating label select example">
                   <option selected></option>
                   <option value=NEW>New</option>
                   <option value=DELIVERED>Delivered</option>
@@ -202,8 +207,16 @@
 
             <div class="col">
 
-            <button name="apply" type="submit" class="btn btn-warning">Apply</button>
+            <button name="apply" type="submit" class="btn btn-warning" style="margin-top:175px; margin-left: 120px; ;">Apply</button>
 
+             
+     </div>
+    </div>
+  </div>
+     </div>
+    </div>
+    </div>
+  
 
             </div>
 

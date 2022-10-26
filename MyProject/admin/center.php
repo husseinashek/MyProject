@@ -137,15 +137,18 @@ session_start();?>
  
 
  if (isset($_POST['search'])){
-
+ 
   $full_name=$_POST['fullname'];
   $invoice_nb=$_POST['invoice_nb'];
-
-
+    
+  
   $sql = "SELECT * FROM invoice WHERE invoice_number='$invoice_nb'";
   $result=mysqli_query($conn,$sql);
   $row= mysqli_fetch_array($result);
 
+  if ($result->num_rows >0) {
+  
+    
   $invoice_chrg=$row['invoice_charge']." ".$row['currency'];
   $invoice_nb=$row['invoice_number'];
   $delivery_chrg=$row['delivery_charge']." ".$row['currency1'];
@@ -166,7 +169,7 @@ session_start();?>
 
 
   
-
+// 1   2   1   2   1  2   1   3
   $sql="SELECT invoice.*, customer.* FROM invoice  INNER JOIN customer ON invoice_number= invoice_ID WHERE invoice_number= '$invoice_nb' ";
   $result=mysqli_query($conn,$sql);
   $row= mysqli_fetch_array($result);
@@ -382,7 +385,7 @@ session_start();?>
 
 
         </div>
-
+      
 
 
 
@@ -399,8 +402,8 @@ session_start();?>
 
 
     </div>
-      
-
+       
+    
 
       
       
@@ -412,7 +415,78 @@ session_start();?>
 
 
 
-  </body>
-</html>
+ 
 
-<?php }?>
+
+   
+	
+    <?php  }  
+else{echo '<script>alert("invalid invoice")</script>';}
+}
+
+if (isset($_POST['s_search'])){
+  
+  $full_name=$_POST['fullname'];
+  $invoice_nb=$_POST['invoice_nb'];
+
+  $sql = "SELECT * FROM supplier WHERE full_name='$full_name'";
+  $result=mysqli_query($conn,$sql);
+  $row= mysqli_fetch_array($result);
+
+  if ($result->num_rows >0) {
+ 
+   
+    $full_name1=$row['full_name'];
+
+
+    $sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_name= supplier_name WHERE full_name= '$full_name1' ";
+    $result=mysqli_query($conn,$sql);
+    $row= mysqli_fetch_array($result);
+    
+    $invoice_nb=$row['invoice_number'];
+    
+  
+    $sql="SELECT invoice.*, customer.* FROM invoice  INNER JOIN customer ON invoice_number= invoice_ID WHERE invoice_number= '$invoice_nb' ";
+  $result=mysqli_query($conn,$sql);
+  $row= mysqli_fetch_array($result);
+
+  $full_name=$row['full_name'];
+
+    ?>
+    
+   <div style= " margin-left: 120px;">
+
+<div class="container mt-5">
+
+  <div class="row">
+    
+    <div class="col">
+    <div class="card shadow" style="width: 18rem;">
+    <div class="card-body">
+     <h5 class="card-title bg-warning border rounded" style="text-align: center;">Orders Info</h5>
+     <div class="mt-3">
+      
+   <p>Invoice Number : <b><?php echo $invoice_nb; ?> </b></p>
+  
+  <p>Supplier Name : <b><?php echo $full_name1; ?> </b></p>
+  
+  
+  <p>Customer Name : <b><?php echo $full_name; ?> </b></p>
+  
+  
+    
+     </div>
+    </div>
+  </div>
+     </div>
+  
+    </div>
+  
+  
+  </div>
+   </div>
+  </div>
+  </body>
+  </html>
+  <?php  } else {echo '<script>alert("invalid name")</script>';}}
+?>

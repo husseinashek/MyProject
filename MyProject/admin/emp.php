@@ -64,10 +64,14 @@
                 <td><?php echo $row['password']; ?></td>
                 <td><?php echo $row['role']; ?> </td>
                 <td><?php echo $row['salary']; ?></td>
-                <td class="text-center">  <button class='btn btn-info btn-xs' name="edit" ><span class="glyphicon glyphicon-edit"></span> Edit</button>  <button class="btn btn-danger btn-xs" name="delete" >
-                <span class="glyphicon glyphicon-remove"></span> Del</button></td>
+                <td class="text-center"> 
+                
+                 <a href="edit.php?id= <?php echo $row['username']; ?>" class='btn btn-info btn-xs' ><span class="glyphicon glyphicon-edit" ></span> Edit</button>
+                 <a href="delete.php?id= <?php echo $row['username']; ?>"   class="btn btn-danger btn-xs">
+                <span class="glyphicon glyphicon-remove"></span> Del</a></td>
+
             
-              </tr>
+               </tr>
             <?php }?>
     </table>
     <button class="btn btn-warning" name="add" onclick="window.location.href = 'add_emp.php';" style="height: 30px; position:relative; left:400px;">Add new employee</button>
