@@ -22,9 +22,11 @@
 
 <html lang="en">
     <head>
+      
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 </head>
 <div class="span3 well">
       <legend>Add New Employee</legend>
@@ -39,7 +41,9 @@
   <option value="data entry">data entry</option>
 </select>
         <input class="span3" name="salary" placeholder="salary" type="text">
+      
         <button name="add" class="btn btn-warning" type="submit">Add Employee</button>
+        <?php if (isset($_POST['add'])){ header('location:emp.php');}?>
     </form>
 </div>
 </html>

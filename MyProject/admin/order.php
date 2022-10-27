@@ -152,7 +152,7 @@ $invoice=$row['invoice_number'];
 
       <!-- go back-->
       <div class="bg-warning" style="height: 40px;">
-      <i class="fa fa-arrow-circle-left ms-2 mt-2 cursor" style="font-size:24px" ></i>
+      <i class="fa fa-arrow-circle-left ms-2 mt-2 cursor" style="font-size:24px" onclick="history.back()"></i>
       </div>
 
 
@@ -175,7 +175,7 @@ $invoice=$row['invoice_number'];
   <div class="row" style="width: 500px; height: 500px; margin-left: -100px;">
     
     <div class="col">
-    <div class="card shadow" style="width: 500px; height: 400px;">
+    <div class="card shadow" style="width: 500px; height: 400px;background-color:whitesmoke">
     <div class="card-body" >
      <h5 class="card-title bg-warning border rounded" style="text-align: center;">Update Status</h5>
      <div class="mt-3" >
@@ -207,7 +207,7 @@ $invoice=$row['invoice_number'];
 
             <div class="col">
 
-            <button name="apply" type="submit" class="btn btn-warning" style="margin-top:175px; margin-left: 120px; ;">Apply</button>
+            <button name="apply" type="submit" class="btn btn-warning" style="margin-top:175px; margin-left: 120px;">Apply</button>
 
              
      </div>

@@ -21,8 +21,164 @@ error_reporting(0);
     <title>Delivery Company</title>
   </head>
   <body>
-
+ 
     <style> 
+    *, *:after, *:before{
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    
+}
+body, html{
+    font-size:100%;
+    padding:0;
+    margin:0;
+    height:100%;
+}
+body{
+    font-family:Arial, sans-serif;
+  
+}
+a{
+    color:#888;
+    text-decoration:none;
+}
+a:hover,
+a:active{
+    color:#333;   
+}
+.container{
+    height:100%;
+    position:relative;
+}
+.container > section{
+    margin:0 auto;
+    padding:6em 3em;
+    text-align:center;
+    color:#fff;
+}
+h2{
+    color:#fff;
+    margin:20px;
+    text-align:center;
+    text-transform:uppercase;
+}
+/* General button styles */
+.btn{
+    border:none;
+    position:relative;
+    background:none;
+    padding:28px 90px;
+    display:inline-block;
+    text-transform:uppercase;
+    margin:15px 30px;
+    color:inherit;
+    letter-spacing:2px;
+    font-size:0.9em;
+    outline:none;
+    -moz-transition:all 0.4s;
+    -webkit-transition:all 0.4s;
+    transition:all 0.4s;
+    cursor:pointer;
+}
+.btn:after{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-transition:all 0.4s;
+    -moz-transition:all 0.4s;
+    transition:all 04.s;
+}
+.btn_perspective{
+    -webkit-perspective:800px;
+    -moz-perspective:800px;
+    perspective:800px;
+    display:inline-block;
+}
+.btn-3d{
+    display:block;
+    background:#FFD233;
+    outline:1px solid transparent;
+    transform-style:preserve-3d;
+}
+.btn-3d:active{
+    background:#FFD233;   
+}
+.btn-3da:after{
+    width:100%;
+    height:42%;
+    left:0;
+    top:-40%;
+    background:#FFD233;
+    transform-origin:0% 100%;
+    transform:rotateX(90deg);
+   
+    
+}
+.btn-3da:hover{
+    transform: rotateX(-45deg);   
+}
+.btn-3db:after{
+    width:100%;
+    height:40%;
+    left:0;
+    top:100%;
+    background:#FFD233;
+    transform-origin: 0% 0%;
+    transform:rotateX(-90deg);
+}
+.btn-3db:hover{
+    transform:rotateX(35deg);   
+}
+.btn-3dc:after{
+    width:20%;
+    height:100%;
+    left:-20%;
+    top:0;
+    background:#FFD233;
+    -webkit-transform-origin:100% 0%;
+    -webkit-transform:rotateY(-90deg);
+    -moz-transform-origin:100% 0%;
+    -moz-transform:rotateY(-90deg);
+    -ms-transform-origin:100% 0%;
+    -ms-transform:rotateY(-90deg);
+    transform-origin:100% 0%;
+    transform:rotateY(-90deg);
+}
+.btn-3dc:hover{
+    transform:rotateY(25deg);   
+}
+.btn-3dd:after{
+    width:20%;
+    height:100%;
+    left:100%;
+    top:0;
+    background:#FFD233;
+    -webkit-transform-origin:0% 0%;
+    -webkit-transform:rotateY(90deg);
+    -moz-transform-origin:0% 0%;
+    -moz-transform:rotateY(90deg);
+    -ms-transform-origin:0% 0%;
+    -ms-transform:rotateY(90deg);
+    transform-origin:0% 0%;
+    transform:rotateY(90deg);
+}
+.btn-3dd:hover{
+    -webkit-transform:rotateY(-15deg);
+    -moz-transform:rotateY(-15deg);
+    -ms-transform:rotateY(-15deg);
+    transform:rotateY(-15deg);
+}
+
+
+@media screen and (max-width:480px){
+    .container{
+        font-size:1.2em;   
+    }
+}
+
+
+
 
       #position {
         position: relative;
@@ -102,53 +258,29 @@ error_reporting(0);
       <!-- go back-->
       <div class="bg-warning" style="height: 40px;">
       <div class="position-relative">
-      <i class="fa fa-arrow-circle-left ms-2 mt-2 cursor" style="font-size:24px"  onclick="history.back()"></i>
+      
       <a href="logout.php"  style="color:black"> <i  class="fa fa-sign-out cursor position-absolute top-0 end-0 mt-2 me-3 " style="font-size:28px" ></i>  </a>
-      </div>
-
-
-
-
-      <div class="container mt-5">
-      <div class="row ">
-
-      <!-- data entry-->
-        <div class="col ">
-          <a href="data.php">
-        <div class="card card1 shadow  border   font1" style="width: 28rem;">
-        <img src="img/dataent.png" class="card-img-top " alt="...">
-        <div class="card-body">
-          <a href="data.php" class="btn btn-warning d-grid gap-2 card2">Data Entry</a>
-        </div>
-      </div>
-          </a>
-      </div>
-
-
-
-          <!-- Order Status-->
-          <div class="row mt-5" style = "position:relative; left:900px; bottom:425px;">
-          <div class="col ">
-          <a href="order.php">
-          <div class="card card1 border  shadow  font1 " style="width: 28rem;">
-            <img src="img/order.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <a href="order.php" class="btn btn-warning d-grid gap-2 card2">Order Status</a>
-            </div>
-          </div>
-            </a>
-          </div>
-  
-
-
-
-
-
-
       </div>
 
       
 
+      <div class="container" >
+  <section class="3d-buttons">
+    <h2 style="color:black ;">Data Entry</h2>
+    <p class="btn_perspective">
+      
+    
+      <button class="btn btn-3d btn-3da" style="color:black ;" onclick="location.href='data.php'" ><b>New Orders</b>
+      </button>
+    </p>
+    
+    <p class="btn_perspective">
+      <button class="btn btn-3d btn-3dd" style="color:black ;" onclick="location.href='order.php'"><b>Order Status</b>
+      </button>
+    </p>
+   
+  </section>
+</div>
 
      
 

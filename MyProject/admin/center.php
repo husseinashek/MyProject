@@ -92,7 +92,7 @@ session_start();?>
 
       <!-- go back-->
       <div class="bg-warning" style="height: 40px;">
-      <i class="fa fa-arrow-circle-left ms-2 mt-2 cursor" style="font-size:24px" ></i>
+      <i class="fa fa-arrow-circle-left ms-2 mt-2 cursor" style="font-size:24px" onclick="history.back()" ></i>
       </div>
 
 
@@ -431,9 +431,10 @@ if (isset($_POST['s_search'])){
 
   $sql = "SELECT * FROM supplier WHERE full_name='$full_name'";
   $result=mysqli_query($conn,$sql);
-  $row= mysqli_fetch_array($result);
+  if ($result->num_rows > 0) {
+  
 
-  if ($result->num_rows >0) {
+    while($row = mysqli_fetch_assoc($result)){
  
    
     $full_name1=$row['full_name'];
@@ -488,5 +489,5 @@ if (isset($_POST['s_search'])){
   </div>
   </body>
   </html>
-  <?php  } else {echo '<script>alert("invalid name")</script>';}}
+  <?php  } }}
 ?>
