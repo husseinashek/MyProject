@@ -30,32 +30,34 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css " rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
 
-    <title>Delivery Company</title>
-  </head>
+	<title>Register Form - Pure Coding</title>
+</head>
 <body>
-	<div class="container">
+
+<div class="container" >
+	<section id="content">
 		<form action="" method="POST" class="login-email">
-			<p class="login-text" style="font-size: 2rem; font-weight: 800;">Login</p>
-			<div class="input-group">
-				<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
+			<h1>Sign In</h1>
+			<div>
+				<input type="text" placeholder="Email" required="" name="email" id="username" value="<?php echo $email; ?>"  />
 			</div>
-			<div class="input-group">
-				<input type="password" placeholder="Password" name="password" value="<?php echo $_POST['password']; ?>" required>
+			<div>
+				<input type="password" placeholder="Password" required="" name="password" id="password" value="<?php echo $_POST['password']; ?>" />
+				
 			</div>
-			<div class="input-group">
-				<button name="submit" class="btn">Login</button>
+			<div>
+				<input type="submit" value="Sign In" name="submit"/>
+		
+				
+			<a href="users.php">Sign Up Here</a>.</p>
 			</div>
-			<p class="login-register-text">Don't have an account? <a href="user_reg.php">Register Here</a>.</p>
-		</form>
-	</div>
+		</form><!-- form -->
+		
+	</section><!-- content -->
+</div><!-- container -->
 </body>
 </html>
 

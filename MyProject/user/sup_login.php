@@ -42,8 +42,8 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="container" >
-    <h5 style="background-color: #FFD233;">Supplier Login Form</h5>
+<div class="container">
+    <h5 style="background-color: #FFD233;"><b>Supplier Login Form</b></h5>
     <div id="user-login" class="row">
         <div class="col s12 z-depth-6 card-panel">
             <form class="login-form" name="login-form" method="POST"
