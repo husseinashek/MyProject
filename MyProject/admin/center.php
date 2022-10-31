@@ -174,7 +174,7 @@ session_start();?>
   $result=mysqli_query($conn,$sql);
   $row= mysqli_fetch_array($result);
 
-  $full_name=$row['full_name'];
+  $full_name=$row['full_name1'];
   $primary_phone_number=$row['primary_phone_number'];
   $secondary_phone_number=$row['secondary_phone_number'];
  
