@@ -38,7 +38,7 @@
     
     
     
-    $sql="INSERT INTO customer(full_name,primary_phone_number,secondary_phone_number,invoice_ID) VALUES ('$full_name','$primary_phone_nb','$secondary_Phone_nb','$invoice_nb')";
+    $sql="INSERT INTO customer(full_name1,primary_phone_number,secondary_phone_number,invoice_ID,supp_name) VALUES ('$full_name','$primary_phone_nb','$secondary_Phone_nb','$invoice_nb','$supplier')";
     $result = mysqli_query($conn,$sql);
 
 
@@ -47,7 +47,7 @@
 
     
 
-    
+    header('location:data.php');
 
     
  

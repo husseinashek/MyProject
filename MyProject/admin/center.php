@@ -138,7 +138,7 @@ session_start();?>
 
  if (isset($_POST['search'])){
  
-  $full_name=$_POST['fullname'];
+ 
   $invoice_nb=$_POST['invoice_nb'];
     
   
@@ -426,68 +426,88 @@ else{echo '<script>alert("invalid invoice")</script>';}
 
 if (isset($_POST['s_search'])){
   
-  $full_name=$_POST['fullname'];
-  $invoice_nb=$_POST['invoice_nb'];
-
-  $sql = "SELECT * FROM supplier WHERE full_name='$full_name'";
-  $result=mysqli_query($conn,$sql);
-  if ($result->num_rows > 0) {
-  
-
-    while($row = mysqli_fetch_assoc($result)){
+  ?>
+<br>
+<div class="container" style="margin-left: 500px ;">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+  <table class="table table-striped custab">
  
+  
+  
+  
+   <?php
+
+$full_name=$_POST['fullname'];
+  
+$sql = "SELECT * FROM supplier WHERE full_name='$full_name'";
+$result=mysqli_query($conn,$sql);
+while($row = mysqli_fetch_assoc($result)){
+
+
+
+  
+$full_name=$row['full_name'];?>
    
-    $full_name1=$row['full_name'];
+   
+   <thead style="background-color: #FFD233 ;">
 
-
-    $sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_name= supplier_name WHERE full_name= '$full_name1' ";
-    $result=mysqli_query($conn,$sql);
-    $row= mysqli_fetch_array($result);
-    
-    $invoice_nb=$row['invoice_number'];
-    
-  
-    $sql="SELECT invoice.*, customer.* FROM invoice  INNER JOIN customer ON invoice_number= invoice_ID WHERE invoice_number= '$invoice_nb' ";
-  $result=mysqli_query($conn,$sql);
-  $row= mysqli_fetch_array($result);
-
-  $full_name=$row['full_name'];
-
-    ?>
-    
-   <div style= " margin-left: 120px;">
-
-<div class="container mt-5">
-
-  <div class="row">
-    
-    <div class="col">
-    <div class="card shadow" style="width: 18rem;">
-    <div class="card-body">
-     <h5 class="card-title bg-warning border rounded" style="text-align: center;">Orders Info</h5>
-     <div class="mt-3">
-      
-   <p>Invoice Number : <b><?php echo $invoice_nb; ?> </b></p>
-  
-  <p>Supplier Name : <b><?php echo $full_name1; ?> </b></p>
-  
-  
-  <p>Customer Name : <b><?php echo $full_name; ?> </b></p>
-  
-  
-    
-     </div>
-    </div>
-  </div>
-     </div>
-  
-    </div>
-  
-  
-  </div>
-   </div>
-  </div>
-  </body>
-  </html>
-  <?php  } }}
+<th style="text-align:center ;" colspan="2">Supplier Name:
+ <b><?php echo $full_name; ?></b><?php }
 ?>
+</th>
+</thead>
+   
+   <th style="text-align:center ;">Invoice Number:</th>
+    <th style="text-align:center ;">Customer Name:</th> 
+    <tr>
+<td style="text-align:center ;">
+<?php
+// 1   2   1   2   1  2   1   3
+
+$sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_name= supplier_name WHERE full_name= '$full_name' ";
+  $result=mysqli_query($conn,$sql);
+  while($row = mysqli_fetch_assoc($result)){
+    
+  $invoice_nb=$row['invoice_number'];
+  $suppl= $row['full_name'];?>
+  
+
+  
+
+<br><b><?php echo $invoice_nb; ?></b> </br>
+  
+
+
+  <?php }
+
+  
+  ?>
+</td>
+<td style="text-align:center ;">
+ <?php
+  $sql="SELECT supplier.*, customer.* FROM supplier  INNER JOIN customer ON full_name= supp_name  WHERE  full_name= '$suppl' ";
+$result=mysqli_query($conn,$sql);
+while($row = mysqli_fetch_assoc($result)){
+
+$full_name1=$row['full_name1']; 
+?>
+ 
+ 
+ 
+ <br><b><?php echo $full_name1; ?></b> </br> 
+
+ 
+<?php } ?>
+
+
+</td>
+
+
+</table>
+    </div>
+</div>
+<?php } ?>
+</body>
+
+  </html>
+

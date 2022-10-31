@@ -2,16 +2,7 @@
  include 'config.php';
  ob_start();
    session_start();
-?>
 
-<?
-   // error_reporting(E_ALL);
-   // ini_set("display_errors", 1);
-?>
-
-
-         
-         <?php
             $sql = "SELECT * FROM employee";
             $result = mysqli_query($conn, $sql);
           	if ($result->num_rows > 0) { 
