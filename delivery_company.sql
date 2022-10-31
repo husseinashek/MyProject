@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2022 at 06:22 PM
+-- Generation Time: Oct 31, 2022 at 05:25 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -41,7 +41,11 @@ CREATE TABLE `address1` (
 INSERT INTO `address1` (`region`, `city`, `street`, `invoice_no`) VALUES
 ('beirut', 'laylake', 'khomyne', 5),
 ('north', '', '', 0),
-('beirut', 'laylake', 'khomyne', 6);
+('beirut', 'laylake', 'khomyne', 6),
+('beirut', 'laylake', 'khomyne', 9),
+('beirut', 'laylake', 'khomyne', 4),
+('bekaa', 'kdkd', 'sadd', 10),
+('south', 'kabs', 'lioo', 12);
 
 -- --------------------------------------------------------
 
@@ -68,20 +72,25 @@ INSERT INTO `admin1` (`username`, `password`) VALUES
 --
 
 CREATE TABLE `customer` (
-  `full_name` varchar(20) NOT NULL,
+  `full_name1` varchar(20) NOT NULL,
   `primary_phone_number` varchar(10) NOT NULL,
   `secondary_phone_number` varchar(10) NOT NULL,
-  `invoice_ID` int(11) NOT NULL
+  `invoice_id` int(11) NOT NULL,
+  `supp_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`full_name`, `primary_phone_number`, `secondary_phone_number`, `invoice_ID`) VALUES
-('haitham', '70127822', '', 5),
-('husse', '70127823', '', 0),
-('shams', '0392866', '', 6);
+INSERT INTO `customer` (`full_name1`, `primary_phone_number`, `secondary_phone_number`, `invoice_id`, `supp_name`) VALUES
+('husse', '70127823', '', 0, 'hussein ashek'),
+('mhmid', '28908888', '', 4, 'jaafar k'),
+('haitham', '70127822', '', 5, 'hussein ashek'),
+('shams', '0392866', '', 6, 'hussein ashek'),
+('karim', '39227333', '', 9, 'jaafar k'),
+('mmmmm', '39227355', '', 10, 'jaafar k'),
+('samar', '702707041', '', 12, 'hussein ashek');
 
 -- --------------------------------------------------------
 
@@ -105,7 +114,11 @@ INSERT INTO `employee` (`username`, `password`, `role`, `salary`, `fullname`) VA
 ('abbas.q', '1234567', 'data entry', '100$', 'abbass'),
 ('ali', '1234567', 'call center', '200$', 'ali ali'),
 ('haitham333', '1234567', 'call center', '175$', 'haitham'),
-('mhmd.k', '1234567', 'data entry', '150$', 'mhmd kam');
+('hsn@daw', '1234567', 'call center', '130$', 'hsn'),
+('karim@1', '1234567', 'call center', '175$', 'karimz'),
+('mhmd.k', '1234567', 'data entry', '150$', 'mhmd kam'),
+('samirr@', '1234567', 'data entry', '100$', 'samir'),
+('zaher.a', '1234567', 'call center', '100$', 'zaher');
 
 -- --------------------------------------------------------
 
@@ -132,9 +145,13 @@ CREATE TABLE `invoice` (
 --
 
 INSERT INTO `invoice` (`invoice_number`, `invoice_charge`, `delivery_charge`, `note`, `order_status`, `insert_date`, `currency`, `currency1`, `breakable`, `returnn`, `supplier_name`) VALUES
-(0, '0', '0', '', 'DELIVERED', '2022-09-24', 'LBP', 'LBP', 0, 0, 'hussein ashek'),
-(5, '50000', '30000', '', 'NEW', '2022-09-24', 'LBP', 'LBP', 0, 0, 'hussein ashek'),
-(6, '500000', '40000', '', 'NEW', '2022-09-25', 'LBP', 'LBP', 0, 0, 'hussein ashek');
+(0, '0', '0', 'delayed by customer', 'DELAYED', '2022-09-24', 'LBP', 'LBP', 0, 0, 'hussein ashek'),
+(4, '40000', '10000', '', 'NEW', '2022-10-24', 'LBP', 'LBP', 0, 0, 'jaafar k'),
+(5, '50000', '30000', '', 'DELIVERED', '2022-09-24', 'LBP', 'LBP', 0, 0, 'hussein ashek'),
+(6, '500000', '40000', '', 'NEW', '2022-09-25', 'LBP', 'LBP', 0, 0, 'hussein ashek'),
+(9, '800000', '20000', '', 'CANCELED', '2022-10-24', 'LBP', 'LBP', 0, 0, 'jaafar k'),
+(10, '299999', '50000', '', 'NEW', '2022-10-30', 'LBP', 'LBP', 0, 0, 'jaafar k'),
+(12, '100000', '8000', '', 'NEW', '2022-10-30', 'LBP', 'LBP', 0, 0, 'hussein ashek');
 
 -- --------------------------------------------------------
 
@@ -149,16 +166,16 @@ CREATE TABLE `supplier` (
   `password` varchar(20) NOT NULL,
   `region` varchar(20) NOT NULL,
   `city` varchar(20) NOT NULL,
-  `street` varchar(20) NOT NULL,
-  `order_nb` int(20) NOT NULL
+  `street` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `supplier`
 --
 
-INSERT INTO `supplier` (`full_name`, `primary_phone_number`, `username`, `password`, `region`, `city`, `street`, `order_nb`) VALUES
-('hussein ashek', '70862018', 'hussein.ashek', '1234567', 'beirut', 'laylake', 'khomyne', 0);
+INSERT INTO `supplier` (`full_name`, `primary_phone_number`, `username`, `password`, `region`, `city`, `street`) VALUES
+('hussein ashek', '70862018', 'hussein.ashek', '1234567', 'beirut', 'laylake', 'khomyne'),
+('jaafar k', '34234311', 'jaafar.k', '1234567', 'Beirut', 'laylake', 'khomyne');
 
 -- --------------------------------------------------------
 
@@ -176,6 +193,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`email`, `password`) VALUES
+('hsn.shms22@gmail.com', '1111111'),
 ('mohammadashek@hotmail.com', '11111111');
 
 --
@@ -198,7 +216,8 @@ ALTER TABLE `admin1`
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
-  ADD KEY `invoice_ID` (`invoice_ID`);
+  ADD UNIQUE KEY `invoice_id` (`invoice_id`),
+  ADD KEY `supp_name_2` (`supp_name`);
 
 --
 -- Indexes for table `employee`
@@ -240,7 +259,8 @@ ALTER TABLE `address1`
 -- Constraints for table `customer`
 --
 ALTER TABLE `customer`
-  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`invoice_ID`) REFERENCES `invoice` (`invoice_number`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`invoice_id`) REFERENCES `invoice` (`invoice_number`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `customer_ibfk_2` FOREIGN KEY (`supp_name`) REFERENCES `supplier` (`full_name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `invoice`
