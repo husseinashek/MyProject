@@ -44,7 +44,7 @@
 </head>
 <body>
 <div class="container">
-    <h5 style="background-color: #FFD233;"><b>Supplier Login Form</b></h5>
+    <h1 style="background-color: #FFD233;"><b>Supplier Login Form</b></h1>
     <div id="user-login" class="row">
         <div class="col s12 z-depth-6 card-panel">
             <form class="login-form" name="login-form" method="POST"
@@ -58,14 +58,14 @@
                             name="username" type="text" required placeholder="Username">
                             
                         
-                </div>
+             
 
                 <div class="row margin">
                     <div class="input-field col s12">
                         <i class="mdi-action-lock-outline prefix"></i> <input
                             id="password" name="password"
                             type="password" required placeholder="Password">
-                        
+                            </div>
                 </div>
                 
                 </div>
