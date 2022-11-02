@@ -1,10 +1,11 @@
 <?php
 	 include 'config.php';
   
+	 session_start();
+	 
+	 $username=$_SESSION['username'];
 
-	$id=$_GET['id'];
-
-    $sql = "SELECT * FROM employee where username='$id'";
+    $sql = "SELECT * FROM employee where username='$username'";
     $result = mysqli_query($conn, $sql);
     
       if ($result->num_rows > 0) {

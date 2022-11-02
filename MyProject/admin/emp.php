@@ -118,7 +118,7 @@
     <?php
   
                 while($row = mysqli_fetch_assoc($result)){
-                  $id=  $row['username'];
+                 
                    ?>
             <tr>
             <td ><?php echo $row['fullname']; ?></td>
@@ -127,9 +127,9 @@
                 <td><?php echo $row['role']; ?> </td>
                 <td><?php echo $row['salary']; ?></td>
                 <td class="text-center"> 
-                
-                 <a href="edit.php?id= <?php echo $row['username']; ?>" class='btn btn-info btn-xs' ><span class="glyphicon glyphicon-edit" ></span> Edit</button>
-                 <a href="delete.php?id= <?php echo $row['username']; ?>"   class="btn btn-danger btn-xs">
+                <?php $username= $row['username'];?>
+                 <a href="edit.php?id= <?php echo $row['username']; ?>" class='btn btn-info btn-xs' ><span class="glyphicon glyphicon-edit" ></span> Edit</a>
+                 <a href="delete.php?id= <?php echo $username;?> "   class="btn btn-danger btn-xs">
                 <span class="glyphicon glyphicon-remove"></span> Del</a></td>
 
             

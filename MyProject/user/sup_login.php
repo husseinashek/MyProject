@@ -25,7 +25,8 @@
 	if ($result->num_rows > 0) {
 		$row = mysqli_fetch_assoc($result);
 		$_SESSION['username'] = $row['username'];
-		header("Location: users.php");
+		header("Location: supp_orders.php");
+        
 	} else {
 		echo "<script>alert('Woops! username or Password is Wrong.')</script>";
 	}
@@ -72,7 +73,8 @@
                     <div class="input-field col s12">
 
                     <div class="input-group" style="position:absolute; left:80px; top: -15px;" >
-				<button name="submit"  class="btn">Login</button>
+                    <form method="get" action="supp_orders.php" >
+				<button name="submit"  class="btn" value="login">Login</button></form>
 			</div>
                     </div>
                 </div>
