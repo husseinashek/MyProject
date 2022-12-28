@@ -16,10 +16,14 @@
   $city=$_POST['city'];
   $street=$_POST['street'];
 
+  $sql = "SELECT * FROM supplier WHERE username='$username'";
+		$result = mysqli_query($conn, $sql);
+		if ($result->num_rows > 0) { echo "<script>alert('Woops! Username Already Exists.')</script>";}
+   else{
   $sql="INSERT INTO supplier(full_name,primary_phone_number ,username ,password ,region , city,street) 
   VALUES('$full_name','$primary_phone_number','$username','$password','$region','$city','$street')";
   $result=mysqli_query($conn,$sql);
- }
+ }}
 
  if (isset($_POST['search'])){
 
@@ -141,10 +145,7 @@ $primary_phone_number=$_POST['primary_phone_number2'];
                     <a class="nav-link" href="order.php">Order Status</a>
                   </li>
 
-              <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
+              
             </div>
           </div>
         </div>

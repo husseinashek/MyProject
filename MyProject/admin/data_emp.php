@@ -243,10 +243,7 @@ h2{
 
                   
 
-              <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
+              
             </div>
           </div>
         </div>
@@ -269,11 +266,12 @@ h2{
     <h2 style="color:black ;">Data Entry</h2>
     <p class="btn_perspective">
       
-    
+    <!-- take us to new orders-->
       <button class="btn btn-3d btn-3da" style="color:black ;" onclick="location.href='data.php'" ><b>New Orders</b>
       </button>
     </p>
     
+    <!-- take us to order status-->
     <p class="btn_perspective">
       <button class="btn btn-3d btn-3dd" style="color:black ;" onclick="location.href='order.php'"><b>Order Status</b>
       </button>

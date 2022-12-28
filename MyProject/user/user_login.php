@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
 				<input type="submit" value="Sign In" name="submit"/>
 		
 				
-			<a href="users.php">Sign Up Here</a>.</p>
+			<a href="user_reg.php">Sign Up Here</a>.</p>
 			</div>
 		</form><!-- form -->
 		

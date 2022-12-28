@@ -78,10 +78,6 @@ session_start();?>
                     <a class="nav-link" href="order.php">Order Status</a>
                   </li>
 
-              <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
             </div>
           </div>
         </div>
@@ -169,7 +165,8 @@ session_start();?>
 
 
   
-// 1   2   1   2   1  2   1   3
+// get customer info
+
   $sql="SELECT invoice.*, customer.* FROM invoice  INNER JOIN customer ON invoice_number= invoice_ID WHERE invoice_number= '$invoice_nb' ";
   $result=mysqli_query($conn,$sql);
   $row= mysqli_fetch_array($result);
@@ -179,6 +176,8 @@ session_start();?>
   $secondary_phone_number=$row['secondary_phone_number'];
  
 
+//get address info
+
   $sql="SELECT invoice.*, address1.* FROM invoice  INNER JOIN address1 ON invoice_number= invoice_no WHERE invoice_number= '$invoice_nb' ";
   $result=mysqli_query($conn,$sql);
   $row= mysqli_fetch_array($result);
@@ -187,27 +186,18 @@ session_start();?>
   $city=$row['city'];
   $street=$row['street'];
 
-  
+
+  //get supplier info
+
   $sql="SELECT invoice.*, supplier.* FROM invoice  INNER JOIN supplier ON supplier_name= full_name WHERE invoice_number= '$invoice_nb' ";
   $result=mysqli_query($conn,$sql);
   $row= mysqli_fetch_array($result);
 
   $full_name1=$row['full_name'];
   $primary_phone_number1=$row['primary_phone_number'];
-  $region1=$row['region'];
-  
-  
-  
-
-
-
-
-
-
-
+  $region1=$row['region']; 
 
 ?>
-
 
 
 
@@ -218,13 +208,16 @@ session_start();?>
      
         <div class="row">
           
-        
+        <!--fill invoice info-->
+
         <div class="col">
            <div class="card shadow " style="width: 18rem;">
            <div class="card-body">
             <h5 class="card-title bg-warning border rounded" style="text-align: center;">Invoice Info</h5>
 
             <div class="mt-3">
+              
+           
             <p>Invoice Number : <b><?php echo $invoice_nb; ?> </b></p>
 
             <p>Invoice Charge : <b><?php echo $invoice_chrg; ?> </b></p>
@@ -242,6 +235,7 @@ session_start();?>
         </div>
 
 
+       <!--fill address info-->
 
         <div class="col">
            <div class="card shadow" style="width: 18rem;">
@@ -267,12 +261,8 @@ session_start();?>
 
 
 
+        <!--fill customer info-->
 
-
-
-
-
-        
         <div class="col">
            <div class="card shadow" style="width: 18rem;">
            <div class="card-body">
@@ -295,6 +285,7 @@ session_start();?>
         </div>
 
 
+        <!--fill supplier info-->
 
         <div class="row mt-5">
         <div class="col">
@@ -317,7 +308,10 @@ session_start();?>
             </div>
 
         </div>
-      
+
+
+      <!--order info-->
+
         <div class="col">
            <div class="card shadow" style="width: 18rem;">
            <div class="card-body">
@@ -340,6 +334,7 @@ session_start();?>
         </div>
 
 
+        <!--order status-->
 
         <div class="col">
            <div class="card shadow" style="width: 18rem;">
@@ -357,44 +352,17 @@ session_start();?>
             </div>
 
 
-
             </div>
             </div>
 
         </div>
 
 
-
-
-
-
-
-
         </div>
 
-
-
-
-        
-
-
-        
-
-
-    
-
-
         </div>
+          
       
-
-
-
-
-
-
-        
-
-        
 </div>     
       </div>
 

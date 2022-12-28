@@ -243,10 +243,7 @@ h2{
 
                   
 
-              <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
+             
             </div>
           </div>
         </div>
@@ -269,11 +266,12 @@ h2{
     <h2 style="color:black ;">Call Center</h2>
     <p class="btn_perspective">
       
-    
+    <!-- take us to call center-->
       <button class="btn btn-3d btn-3da" style="color:black ;" onclick="location.href='center.php'" ><b>Find Orders</b>
       </button>
     </p>
     
+    <!-- add new supp-->
     <p class="btn_perspective">
       <button class="btn btn-3d btn-3dd" style="color:black ;" onclick="location.href='sup.php'"><b>New Supplier</b>
       </button>
