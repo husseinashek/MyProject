@@ -36,7 +36,7 @@
     $sql3="SELECT * FROM supplier WHERE full_name= '$supplier' " ;
     $result=mysqli_query($conn,$sql3); 
     if ($result->num_rows > 0) {
-      $sql2="INSERT INTO invoice (invoice_number,invoice_charge,currency,delivery_charge,currency1,note,breakable,returnn,order_status,insert_date,supplier_name) VALUES ('$invoice_nb','$invoice_chrg','$currency','$delivery_charge','$currency1','$note','$breakable','$return','NEW','$date','$supplier')";
+      $sql2="INSERT INTO invoice (invoice_number,invoice_charge,currency,delivery_charge,currency1,note,breakable,returnn,order_status,insert_date,supplier_name,invoice_region) VALUES ('$invoice_nb','$invoice_chrg','$currency','$delivery_charge','$currency1','$note','$breakable','$return','NEW','$date','$supplier','$region')";
       $result=mysqli_query($conn,$sql2);}
   else die("<script>alert('unknown supplier.')</script>");
    
