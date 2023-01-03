@@ -192,7 +192,7 @@ error_reporting(0);
            <!--Dashboard-->
            
           <div class="col ">
-          <a href="dash.php">
+          <a href="dashboard.php">
           <div class="card card1 border  shadow  font1 " style="width: 18rem;">
             <img src="img/dash.png" class="card-img-top" alt="...">
             <div class="card-body">

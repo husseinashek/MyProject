@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2022 at 05:25 PM
+-- Generation Time: Jan 03, 2023 at 07:20 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -40,12 +40,15 @@ CREATE TABLE `address1` (
 
 INSERT INTO `address1` (`region`, `city`, `street`, `invoice_no`) VALUES
 ('beirut', 'laylake', 'khomyne', 5),
-('north', '', '', 0),
+('north', '', '', 1235),
 ('beirut', 'laylake', 'khomyne', 6),
 ('beirut', 'laylake', 'khomyne', 9),
 ('beirut', 'laylake', 'khomyne', 4),
 ('bekaa', 'kdkd', 'sadd', 10),
-('south', 'kabs', 'lioo', 12);
+('south', 'kabs', 'lioo', 12),
+('north', '', '', 2342),
+('beirut', 'laylake', 'koko', 555),
+('south', 'rfrf', 'erferf', 444);
 
 -- --------------------------------------------------------
 
@@ -84,13 +87,16 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`full_name1`, `primary_phone_number`, `secondary_phone_number`, `invoice_id`, `supp_name`) VALUES
-('husse', '70127823', '', 0, 'hussein ashek'),
 ('mhmid', '28908888', '', 4, 'jaafar k'),
 ('haitham', '70127822', '', 5, 'hussein ashek'),
 ('shams', '0392866', '', 6, 'hussein ashek'),
 ('karim', '39227333', '', 9, 'jaafar k'),
 ('mmmmm', '39227355', '', 10, 'jaafar k'),
-('samar', '702707041', '', 12, 'hussein ashek');
+('samar', '702707041', '', 12, 'hussein ashek'),
+('gtrgrt', '45444444', '', 444, 'jaafar k'),
+('eddaa', '342544543', '', 555, 'jaafar k'),
+('husse', '70127823', '', 1235, 'hussein ashek'),
+('hussein ashek', '70127823', '', 2342, 'hussein ashek');
 
 -- --------------------------------------------------------
 
@@ -137,21 +143,25 @@ CREATE TABLE `invoice` (
   `currency1` varchar(10) NOT NULL,
   `breakable` tinyint(1) NOT NULL,
   `returnn` tinyint(1) NOT NULL,
-  `supplier_name` varchar(20) NOT NULL
+  `supplier_name` varchar(20) NOT NULL,
+  `invoice_region` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `invoice`
 --
 
-INSERT INTO `invoice` (`invoice_number`, `invoice_charge`, `delivery_charge`, `note`, `order_status`, `insert_date`, `currency`, `currency1`, `breakable`, `returnn`, `supplier_name`) VALUES
-(0, '0', '0', 'delayed by customer', 'DELAYED', '2022-09-24', 'LBP', 'LBP', 0, 0, 'hussein ashek'),
-(4, '40000', '10000', '', 'NEW', '2022-10-24', 'LBP', 'LBP', 0, 0, 'jaafar k'),
-(5, '50000', '30000', '', 'DELIVERED', '2022-09-24', 'LBP', 'LBP', 0, 0, 'hussein ashek'),
-(6, '500000', '40000', '', 'NEW', '2022-09-25', 'LBP', 'LBP', 0, 0, 'hussein ashek'),
-(9, '800000', '20000', '', 'CANCELED', '2022-10-24', 'LBP', 'LBP', 0, 0, 'jaafar k'),
-(10, '299999', '50000', '', 'NEW', '2022-10-30', 'LBP', 'LBP', 0, 0, 'jaafar k'),
-(12, '100000', '8000', '', 'NEW', '2022-10-30', 'LBP', 'LBP', 0, 0, 'hussein ashek');
+INSERT INTO `invoice` (`invoice_number`, `invoice_charge`, `delivery_charge`, `note`, `order_status`, `insert_date`, `currency`, `currency1`, `breakable`, `returnn`, `supplier_name`, `invoice_region`) VALUES
+(4, '40000', '10000', '', 'NEW', '2022-10-24', 'LBP', 'LBP', 0, 0, 'jaafar k', ''),
+(5, '50000', '30000', '', 'DELIVERED', '2022-09-24', 'LBP', 'LBP', 0, 0, 'hussein ashek', ''),
+(6, '500000', '40000', '', 'NEW', '2022-09-25', 'LBP', 'LBP', 0, 0, 'hussein ashek', ''),
+(9, '800000', '20000', '', 'CANCELED', '2022-10-24', 'LBP', 'LBP', 0, 0, 'jaafar k', ''),
+(10, '299999', '50000', '', 'NEW', '2022-10-30', 'LBP', 'LBP', 0, 0, 'jaafar k', ''),
+(12, '100000', '8000', '', 'NEW', '2022-10-30', 'LBP', 'LBP', 0, 0, 'hussein ashek', ''),
+(444, '44444', '44444', '', 'NEW', '2023-01-03', 'LBP', 'LBP', 0, 0, 'jaafar k', 'south'),
+(555, '43422', '0242442', '', 'NEW', '2023-01-03', 'LBP', 'LBP', 0, 0, 'jaafar k', ''),
+(1235, '0', '0', 'delayed by customer', 'DELAYED', '2022-09-24', 'LBP', 'LBP', 0, 0, 'hussein ashek', ''),
+(2342, '234234', '2423423', '', 'NEW', '2023-01-03', 'LBP', 'LBP', 0, 0, 'hussein ashek', '');
 
 -- --------------------------------------------------------
 
