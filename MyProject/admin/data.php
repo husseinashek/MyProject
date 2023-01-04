@@ -25,7 +25,7 @@
     $supplier=$_POST['supplier'];
     $return=$_POST['returnn'];
     $date=date("Y/m/d");
-  
+   
     $sql0="Select * FROM invoice WHERE invoice_number='$invoice_nb'";
     $result=mysqli_query($conn,$sql0); 
     if ($result->num_rows > 0) {echo "<script>alert('Woops! Invoice Number Already Exists.')</script>";
@@ -50,7 +50,7 @@
     $sql1="INSERT INTO address1(region,city,street,invoice_no) VALUES ('$region','$city','$street','$invoice_nb')";
     $result = mysqli_query($conn, $sql1);
 
-    
+   
 
     header('location:data.php');
 
@@ -187,12 +187,12 @@
           <legend class="mt-2 ms-3">Customer Info</legend>
 
            <div class="form-floating text-muted ms-3 me-3">
-             <input  name="full_name" type="text" value="<?php echo $_POST['full_name'];  ?>" class=" form-control border-top-0 border-end-0 border-start-0" id="floatingInput" placeholder="Full Name" >
+             <input  name="full_name" type="text" value="<?php echo $_POST['full_name'];  ?>" required="" class=" form-control border-top-0 border-end-0 border-start-0" id="floatingInput" placeholder="Full Name" >
              <label  for="floatingInput">Full Name</label>
            </div>
 
            <div class="form-floating text-muted ms-3 me-3 mt-3">
-             <input  name="primary_phone_nb" type="tel" value="<?php echo $_POST['primary_phone_nb']; ?>" class="form-control border-top-0 border-end-0 border-start-0 " id="floatingInput" placeholder="Primary Phone Number">
+             <input  name="primary_phone_nb" type="tel" value="<?php echo $_POST['primary_phone_nb']; ?>" required="" class="form-control border-top-0 border-end-0 border-start-0 " id="floatingInput" placeholder="Primary Phone Number">
              <label for="floatingInput">Primary Phone Number</label>
            </div>
 
@@ -212,7 +212,7 @@
               <legend class="mt-2 ms-3">Address Info </legend>
               
               <div class="form-floating ms-3 me-3">
-                <select name="region" class="form-select border-top-0 border-end-0 border-start-0" id="floatingSelectGrid" aria-label="Floating label select example">
+                <select name="region" required="" class="form-select border-top-0 border-end-0 border-start-0" id="floatingSelectGrid" aria-label="Floating label select example">
                   <option selected></option>
                   <option value="beirut">Beirut</option>
                   <option value="north">North</option>
@@ -223,7 +223,7 @@
               </div>
     
                <div class="form-floating text-muted ms-3 me-3 mt-3">
-                 <input  type="text" name="city" class="form-control border-top-0 border-end-0 border-start-0 " id="floatingInput" placeholder="City">
+                 <input  type="text" name="city" required="" class="form-control border-top-0 border-end-0 border-start-0 " id="floatingInput" placeholder="City">
                  <label for="floatingInput">City</label>
                </div>
     
@@ -247,7 +247,7 @@
               <div class="col">
               
                 <div class="form-floating text-muted ms-3 me-3">
-                  <input  type="number" name="invoice_nb" class=" form-control border-top-0 border-end-0 border-start-0" id="floatingInput" placeholder="Invoice Number">
+                  <input  type="number" name="invoice_nb" required="" class=" form-control border-top-0 border-end-0 border-start-0" id="floatingInput" placeholder="Invoice Number">
                   <label  for="floatingInput">Invoice Number</label>
                 </div>
               </div>
@@ -258,7 +258,7 @@
               <!-- invoice chrg-->
               <div class="col">
                 <div class="form-floating text-muted ms-3 me-3">
-                  <input  type="number"   name="invoice_chrg" class="form-control border-top-0 border-end-0 border-start-0" id="floatingInput" placeholder="Invoice Charge" value="0">
+                  <input  type="number"  required="" name="invoice_chrg" class="form-control border-top-0 border-end-0 border-start-0" id="floatingInput" placeholder="Invoice Charge" value="0">
                   <label  for="floatingInput">Invoice Charge</label>
                 </div>
               </div>
@@ -267,7 +267,7 @@
               <div class="col">
 
               <div class="form-floating ms-3 me-3">
-                <select  name="currency" class="form-select" style="width: 150px;" id="floatingSelectGrid" aria-label="Floating label select example">
+                <select  name="currency" class="form-select" style="width: 150px;" id="floatingSelectGrid" aria-label="Floating label select example" >
                   
                   <option selected value="LBP">LBP</option>
                   <option value="USD">USD</option>
@@ -286,29 +286,33 @@
 
         <div class="col">
                 <div class="form-floating text-muted ms-3 me-3">
-                  <input  value="0" type="text" name="delivery_charge" class="form-control border-top-0 border-end-0 border-start-0 mt-3" id="floatingInput" placeholder="Delivery Charge">
+                  
+                  <input  value="0" type="text" name="delivery_charge" required="" class="form-control border-top-0 border-end-0 border-start-0 mt-3" id="floatingInput" placeholder="Delivery Charge">
                   <label  for="floatingInput">Delivery Charge</label>
+                  
                 </div>
               </div>
         
-
-
+           
+             
         <!-- currency-->
         <div class="col">
 
-             <div class="form-floating ms-3 me-3">
-                <select  style="width:120px" name="currency1" class="form-select  mt-3" id="floatingSelectGrid" aria-label="Floating label select example">
-                  
-                  <option selected value="LBP">LBP</option>
-                  <option value="USD">USD</option>
-                  
-                </select>
-                <label for="floatingSelectGrid">Currency</label>
-              </div>
-            </div>
+<div class="form-floating ms-3 me-3">
+   <select  style="width:120px" name="currency1" class="form-select  mt-3" id="floatingSelectGrid" aria-label="Floating label select example">
+     
+     <option selected value="LBP">LBP</option>
+     <option value="USD">USD</option>
+     
+   </select>
+   <label for="floatingSelectGrid">Currency</label>
+ </div>
+</div>
+              
+ 
+      
 
-
-
+      <!-- supplier -->
             <div class="col ">
                 <div class="form-floating text-muted ms-3 me-3">
                   <input  type="text" name="supplier" class="form-control border-top-0 border-end-0 border-start-0 mt-3 me-5" id="floatingInput" placeholder="Supplier">
@@ -368,11 +372,6 @@
 
 
 
-
-
-
-
-
  </form>
           </div>
 
@@ -386,19 +385,6 @@
 
        </div>
     
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

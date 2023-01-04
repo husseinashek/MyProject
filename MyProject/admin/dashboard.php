@@ -77,7 +77,10 @@ if(isset($_GET['from_date']) && isset($_GET['to_date']))
       $result=mysqli_query($conn,$sql);
       $delayed_orders=mysqli_num_rows($result);
 
-
+     //ongoing
+     $sql="SELECT * FROM invoice WHERE  order_status='ONGOING' AND insert_date BETWEEN '$from_date' AND '$to_date' ";
+     $result=mysqli_query($conn,$sql);
+     $delayed_orders=mysqli_num_rows($result);
 
 
 

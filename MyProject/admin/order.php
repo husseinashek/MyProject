@@ -24,7 +24,7 @@ $invoice=$row['invoice_number'];
   if($invoice0!=$invoice){
  
     $error="<p> Not a valid invoice!</p>";}
-
+  else{
   $order=$_POST['order'];
   $note=$_POST['note'];
 
@@ -33,8 +33,9 @@ $invoice=$row['invoice_number'];
   
   $sql2="UPDATE invoice SET note='$note' WHERE invoice_number= '$invoice0'";
   $result=mysqli_query($conn,$sql2);
+ 
   
-  
+  echo '<script>alert("successfuly updated")</script>';}
  }
 
 
@@ -152,7 +153,7 @@ $invoice=$row['invoice_number'];
 
       <!-- go back-->
       <div class="bg-warning" style="height: 40px;">
-      <i class="fa fa-arrow-circle-left ms-2 mt-2 cursor" style="font-size:24px" onclick="history.back()"></i>
+      <i class="fa fa-arrow-circle-left ms-2 mt-2 cursor" style="font-size:24px" onclick="location.href = 'admin.php';"></i>
       </div>
 
 
@@ -199,6 +200,7 @@ $invoice=$row['invoice_number'];
                   <option value=DELIVERED>Delivered</option>
                   <option value=DELAYED>Delayed</option>
                   <option value=CANCELED>Canceled</option>
+                  <option value=ONGOING>Ongoing</option>
                   
                 </select>
                 <label for="floatingSelectGrid">Status</label>

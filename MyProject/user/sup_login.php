@@ -55,7 +55,7 @@
                     <div class="input-field col s12">
                         <i class="mdi-social-person-outline prefix"></i>
                         <input class="validate" id="username"
-                            name="username" type="text" required placeholder="Username">
+                            name="username" required="" type="text" required placeholder="Username">
                             
                         
              
@@ -63,7 +63,7 @@
                 <div class="row margin">
                     <div class="input-field col s12">
                         <i class="mdi-action-lock-outline prefix"></i> <input
-                            id="password" name="password"
+                            id="password" name="password" required=""
                             type="password" required placeholder="Password">
                             </div>
                 </div>

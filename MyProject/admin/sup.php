@@ -30,7 +30,7 @@
 $full_name=$_POST['full_name2'];
 $primary_phone_number=$_POST['primary_phone_number2'];
 
-  $sql="SELECT * FROM supplier WHERE full_name= '$full_name' and primary_phone_number='$primary_phone_number' " ;
+  $sql="SELECT * FROM supplier WHERE full_name= '$full_name' or primary_phone_number='$primary_phone_number' " ;
  $result=mysqli_query($conn,$sql);
  $row= mysqli_fetch_array($result);
  if ($result->num_rows > 0) {
@@ -157,7 +157,7 @@ $primary_phone_number=$_POST['primary_phone_number2'];
 
       <!-- go back-->
       <div class="bg-warning" style="height: 40px;">
-      <i class="fa fa-arrow-circle-left ms-2 mt-2 cursor" style="font-size:24px"  onclick="history.back()"></i>
+      <i class="fa fa-arrow-circle-left ms-2 mt-2 cursor" style="font-size:24px"  onclick="location.href = 'admin.php';"></i>
       </div>
 
 
@@ -182,14 +182,14 @@ $primary_phone_number=$_POST['primary_phone_number2'];
                   
                <!-- add supplier-->   
                <div class="form-floating text-muted ms-3 me-3">
-                <input name="full_name" type="text" class=" form-control border-top-0 border-end-0 border-start-0" id="floatingInput" placeholder="Full Name">
+                <input name="full_name" type="text" required="" class=" form-control border-top-0 border-end-0 border-start-0" id="floatingInput" placeholder="Full Name">
                 <label  for="floatingInput">Full Name</label>
                 </div>
                 </div>
 
                 <div class="col">
                 <div class="form-floating text-muted ms-3 me-3">
-                  <input name="primary_phone_number"  type="text" class=" form-control border-top-0 border-end-0 border-start-0" id="floatingInput" placeholder="Primary Phone number">
+                  <input name="primary_phone_number" required="" type="text" class=" form-control border-top-0 border-end-0 border-start-0" id="floatingInput" placeholder="Primary Phone number">
                   <label  for="floatingInput">Primary Phone number</label>
                 </div>
                 </div>
@@ -199,7 +199,7 @@ $primary_phone_number=$_POST['primary_phone_number2'];
                 
                   <div class="col">
                 <div class="form-floating text-muted ms-3 me-3">
-                  <input name="username" type="text" class=" form-control border-top-0 border-end-0 border-start-0" id="floatingInput" placeholder="Username">
+                  <input name="username" type="text" required="" class=" form-control border-top-0 border-end-0 border-start-0" id="floatingInput" placeholder="Username">
                   <label  for="floatingInput">Username</label>
                 </div>
                 </div>
@@ -207,7 +207,7 @@ $primary_phone_number=$_POST['primary_phone_number2'];
 
                 <div class="col">
                     <div class="form-floating text-muted ms-3 me-3">
-                      <input name="password" type="text" class=" form-control border-top-0 border-end-0 border-start-0" id="floatingInput" placeholder="Password">
+                      <input name="password" type="text" required="" class=" form-control border-top-0 border-end-0 border-start-0" id="floatingInput" placeholder="Password">
                       <label  for="floatingInput">Password</label>
                     </div>
                 </div>
@@ -259,7 +259,7 @@ $primary_phone_number=$_POST['primary_phone_number2'];
             </div>
         </div>
 
-
+      <!-- find supplier  -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingTwo">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
@@ -331,11 +331,6 @@ $primary_phone_number=$_POST['primary_phone_number2'];
 
 
 
-
-
-
-
-
           </form>
           
           
@@ -347,11 +342,6 @@ $primary_phone_number=$_POST['primary_phone_number2'];
           
           </div>
         </div>
-
-
-
-
-
 
 
 

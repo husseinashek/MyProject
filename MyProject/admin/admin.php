@@ -92,7 +92,7 @@ error_reporting(0);
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="dash.php">Dashboard</a>
+                    <a class="nav-link" href="dashboard.php">Dashboard</a>
                   </li>
 
              
