@@ -259,7 +259,8 @@ h2{
       <a href="logout.php"  style="color:black"> <i  class="fa fa-sign-out cursor position-absolute top-0 end-0 mt-2 me-3 " style="font-size:28px" ></i>  </a>
       </div>
 
-      
+      <br>
+      <br>
 
       <div class="container">
   <section class="3d-buttons">
@@ -269,7 +270,7 @@ h2{
  
      <!-- take us to new orders-->
     <p class="btn_perspective">
-      <button class="btn btn-3d btn-3da" style="color:black ;" onclick="location.href='data.php'" ><b>New Orders</b>
+      <button class="btn btn-3d btn-3dd" style="color:black ;" onclick="location.href='data.php'" ><b>New Orders</b>
       </button>
     </p>
     
@@ -281,15 +282,11 @@ h2{
 
      <!-- take us to new supplier-->
      <p class="btn_perspective">
-      <button class="btn btn-3d btn-3da" style="color:black ;" onclick="location.href='center.php'" ><b>Supplier</b>
+      <button class="btn btn-3d btn-3dd" style="color:black ;" onclick="location.href='center.php'" ><b>Supplier</b>
       </button>
     </p>
 
-    <!-- take us to order status-->
-    <p class="btn_perspective"  style="margin-left:30px;">
-      <button class="btn btn-3d btn-3dd" style="color:black ;" onclick="location.href='order.php'"><b>Order Status</b>
-      </button>
-    </p>
+  
    
   </section>
 </div>

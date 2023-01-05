@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2023 at 07:20 PM
+-- Generation Time: Jan 05, 2023 at 05:18 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -48,7 +48,9 @@ INSERT INTO `address1` (`region`, `city`, `street`, `invoice_no`) VALUES
 ('south', 'kabs', 'lioo', 12),
 ('north', '', '', 2342),
 ('beirut', 'laylake', 'koko', 555),
-('south', 'rfrf', 'erferf', 444);
+('south', 'rfrf', 'erferf', 444),
+('beirut', 'royale', '', 204),
+('south', 'hadath', '', 80);
 
 -- --------------------------------------------------------
 
@@ -93,6 +95,8 @@ INSERT INTO `customer` (`full_name1`, `primary_phone_number`, `secondary_phone_n
 ('karim', '39227333', '', 9, 'jaafar k'),
 ('mmmmm', '39227355', '', 10, 'jaafar k'),
 ('samar', '702707041', '', 12, 'hussein ashek'),
+('jamil', '8800088', '', 80, 'jaafar k'),
+('jordan', '009999999', '', 204, 'hussein ashek'),
 ('gtrgrt', '45444444', '', 444, 'jaafar k'),
 ('eddaa', '342544543', '', 555, 'jaafar k'),
 ('husse', '70127823', '', 1235, 'hussein ashek'),
@@ -117,12 +121,14 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`username`, `password`, `role`, `salary`, `fullname`) VALUES
-('abbas.q', '1234567', 'data entry', '100$', 'abbass'),
 ('ali', '1234567', 'call center', '200$', 'ali ali'),
-('haitham333', '1234567', 'call center', '175$', 'haitham'),
-('hsn@daw', '1234567', 'call center', '130$', 'hsn'),
+('haitham333', '1234567', 'call center', '177$', 'haitham'),
+('hsn@daw', '1234567', 'accountant', '130$', 'hsn'),
 ('karim@1', '1234567', 'call center', '175$', 'karimz'),
 ('mhmd.k', '1234567', 'data entry', '150$', 'mhmd kam'),
+('mustafa.ff', '1234567', 'manager', '750$', 'mustafa'),
+('rami.r', '1234567', 'driver', '150$', 'rami'),
+('ranim*m', '1234567', 'data entry', '150$', 'ranim'),
 ('samirr@', '1234567', 'data entry', '100$', 'samir'),
 ('zaher.a', '1234567', 'call center', '100$', 'zaher');
 
@@ -152,12 +158,14 @@ CREATE TABLE `invoice` (
 --
 
 INSERT INTO `invoice` (`invoice_number`, `invoice_charge`, `delivery_charge`, `note`, `order_status`, `insert_date`, `currency`, `currency1`, `breakable`, `returnn`, `supplier_name`, `invoice_region`) VALUES
-(4, '40000', '10000', '', 'NEW', '2022-10-24', 'LBP', 'LBP', 0, 0, 'jaafar k', ''),
+(4, '40000', '10000', '', 'ONGOING', '2022-10-24', 'LBP', 'LBP', 0, 0, 'jaafar k', ''),
 (5, '50000', '30000', '', 'DELIVERED', '2022-09-24', 'LBP', 'LBP', 0, 0, 'hussein ashek', ''),
-(6, '500000', '40000', '', 'NEW', '2022-09-25', 'LBP', 'LBP', 0, 0, 'hussein ashek', ''),
-(9, '800000', '20000', '', 'CANCELED', '2022-10-24', 'LBP', 'LBP', 0, 0, 'jaafar k', ''),
-(10, '299999', '50000', '', 'NEW', '2022-10-30', 'LBP', 'LBP', 0, 0, 'jaafar k', ''),
-(12, '100000', '8000', '', 'NEW', '2022-10-30', 'LBP', 'LBP', 0, 0, 'hussein ashek', ''),
+(6, '500000', '40000', '', 'ONGOING', '2022-09-25', 'LBP', 'LBP', 0, 0, 'hussein ashek', ''),
+(9, '800000', '20000', 'cancled by customer', 'CANCELED', '2022-10-24', 'LBP', 'LBP', 0, 0, 'jaafar k', ''),
+(10, '299999', '50000', '', 'DELIVERED', '2022-10-30', 'LBP', 'LBP', 0, 0, 'jaafar k', ''),
+(12, '100000', '8000', '', 'CANCELED', '2022-10-30', 'LBP', 'LBP', 0, 0, 'hussein ashek', ''),
+(80, '70000', '7000', '', 'ONGOING', '2023-01-04', 'LBP', 'LBP', 0, 0, 'jaafar k', 'south'),
+(204, '88890', '9999', '', 'NEW', '2023-01-04', 'LBP', '', 0, 0, 'hussein ashek', 'beirut'),
 (444, '44444', '44444', '', 'NEW', '2023-01-03', 'LBP', 'LBP', 0, 0, 'jaafar k', 'south'),
 (555, '43422', '0242442', '', 'NEW', '2023-01-03', 'LBP', 'LBP', 0, 0, 'jaafar k', ''),
 (1235, '0', '0', 'delayed by customer', 'DELAYED', '2022-09-24', 'LBP', 'LBP', 0, 0, 'hussein ashek', ''),
