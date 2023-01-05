@@ -259,7 +259,8 @@ h2{
       <a href="logout.php"  style="color:black"> <i  class="fa fa-sign-out cursor position-absolute top-0 end-0 mt-2 me-3 " style="font-size:28px" ></i>  </a>
       </div>
 
-      
+      <br>
+      <br>
 
       <div class="container" >
   <section class="3d-buttons">
