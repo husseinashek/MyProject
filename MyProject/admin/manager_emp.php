@@ -263,7 +263,7 @@ h2{
 
       <div class="container">
   <section class="3d-buttons">
-    <h2 style="color:black ;">Data Entry</h2>
+    <h2 style="color:black ;">Manager</h2>
  <br>
  <br>
  
