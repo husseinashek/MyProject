@@ -82,7 +82,7 @@ $invoice=$row['invoice_number'];
 
     <title>Delivery Company</title>
   </head>
-  <body>
+  
 
     <style> 
 
@@ -163,7 +163,7 @@ $invoice=$row['invoice_number'];
 
 
 
-
+<body style="background-color: whitesmoke;">
       
       <div class="container" style="width: 900px;  ">
       
@@ -176,7 +176,7 @@ $invoice=$row['invoice_number'];
   <div class="row" style="width: 500px; height: 500px; margin-left: -100px;">
     
     <div class="col">
-    <div class="card shadow" style="width: 500px; height: 400px;background-color:whitesmoke">
+    <div class="card shadow" style="width: 500px; height: 400px;">
     <div class="card-body" >
      <h5 class="card-title bg-warning border rounded" style="text-align: center;">Update Status</h5>
      <div class="mt-3" >

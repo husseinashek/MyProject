@@ -255,7 +255,7 @@
               
 
               
-              <!-- invoice chrg-->
+              <!-- invoice charge-->
               <div class="col">
                 <div class="form-floating text-muted ms-3 me-3">
                   <input  type="number"  required="" name="invoice_chrg" class="form-control border-top-0 border-end-0 border-start-0" id="floatingInput" placeholder="Invoice Charge" value="0">
@@ -309,7 +309,7 @@
  </div>
 </div>
               
- 
+
       
 
       <!-- supplier -->

@@ -104,7 +104,7 @@
 <div class="container" style="margin-top:70px ;" >
     <div class="row col-md-6 col-md-offset-2 custyle">
     <table class="table table-striped custab">
-    <thead style="background-color: #FFD233 ;">
+    <thead style="background-color: #FFC107 ;">
     
 
             <th>FullName</th>

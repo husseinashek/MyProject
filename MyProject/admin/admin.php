@@ -132,8 +132,8 @@ error_reporting(0);
 
 
       <!-- Call center-->
-      <div class="col">
-        <a href="center.php">
+      <div class="col" >
+        <a href="center.php" >
         <div class="card card1 border shadow  font1 " style="width: 18rem;">
           <img src="img/CallCenter.png" class="card-img-top" alt="...">
           <div class="card-body">

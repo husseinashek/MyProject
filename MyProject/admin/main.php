@@ -35,12 +35,22 @@ if ($result->num_rows > 0) {
  $_SESSION['username'] = $row['username'];
  header("Location: data_emp.php");}
 		
-		else {$sql = "SELECT * FROM employee WHERE username='$username' AND password='$password' AND role='call center' ";
+
+ $sql = "SELECT * FROM employee WHERE username='$username' AND password='$password' AND role='manager' ";
+$result = mysqli_query($conn, $sql);
+if ($result->num_rows > 0) {
+ $row = mysqli_fetch_assoc($result);
+ $_SESSION['username'] = $row['username'];
+ header("Location: manager_emp.php");}
+
+
+	  else {$sql = "SELECT * FROM employee WHERE username='$username' AND password='$password' AND role='call center' ";
 			$result = mysqli_query($conn, $sql);
 			if ($result->num_rows > 0) {
 			 $row = mysqli_fetch_assoc($result);
 			 $_SESSION['username'] = $row['username'];
 			 header("Location: call_emp.php");}
+             
 			 echo "<script>alert('Woops! username or Password is Wrong.')</script>";
 	}
 }
@@ -297,8 +307,8 @@ body {
                 <label>SYSTEM</label>
             </div>
             <div class="input-inform">
-                <input type="text" name="username" id="username" placeholder="USERNAME..."  />
-                <input type="password" name="password" id="password" placeholder="PASSWORD..." />
+                <input type="text" name="username" id="username" placeholder="USERNAME..."  required=""/>
+                <input type="password" name="password" id="password" placeholder="PASSWORD..." required="" />
                
             </div>
             <div class="enter">

@@ -35,8 +35,10 @@ $sql="SELECT * FROM invoice WHERE  order_status='DELAYED' ";
 $result=mysqli_query($conn,$sql);
 $delayed_orders=mysqli_num_rows($result);
 
-
-
+//ongoing
+$sql="SELECT * FROM invoice WHERE  order_status='ONGOING' ";
+$result=mysqli_query($conn,$sql);
+$delayed_orders=mysqli_num_rows($result);
 
 
 

@@ -165,6 +165,8 @@
 <select name="role" placeholder="role" class="form-control" type="text" >
   <option>call center</option>
   <option>data entry</option>
+  <option>driver</option>
+  <option>manager</option>
   </select>
 </div>
 
