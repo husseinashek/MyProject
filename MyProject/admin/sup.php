@@ -157,7 +157,7 @@ $primary_phone_number=$_POST['primary_phone_number2'];
 
       <!-- go back-->
       <div class="bg-warning" style="height: 40px;">
-      <i class="fa fa-arrow-circle-left ms-2 mt-2 cursor" style="font-size:24px"  onclick="location.href = 'admin.php';"></i>
+      <i class="fa fa-arrow-circle-left ms-2 mt-2 cursor" style="font-size:24px"  onclick="history.back()"></i>
       </div>
 
 

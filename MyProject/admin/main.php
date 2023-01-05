@@ -43,6 +43,13 @@ if ($result->num_rows > 0) {
  $_SESSION['username'] = $row['username'];
  header("Location: manager_emp.php");}
 
+ $sql = "SELECT * FROM employee WHERE username='$username' AND password='$password' AND role='accountant' ";
+ $result = mysqli_query($conn, $sql);
+ if ($result->num_rows > 0) {
+  $row = mysqli_fetch_assoc($result);
+  $_SESSION['username'] = $row['username'];
+  header("Location: dashboard.php");}
+
 
 	  else {$sql = "SELECT * FROM employee WHERE username='$username' AND password='$password' AND role='call center' ";
 			$result = mysqli_query($conn, $sql);

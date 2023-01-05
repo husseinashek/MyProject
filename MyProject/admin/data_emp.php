@@ -261,18 +261,32 @@ h2{
 
       
 
-      <div class="container" >
+      <div class="container">
   <section class="3d-buttons">
     <h2 style="color:black ;">Data Entry</h2>
+ <br>
+ <br>
+ 
+     <!-- take us to new orders-->
     <p class="btn_perspective">
-      
-    <!-- take us to new orders-->
       <button class="btn btn-3d btn-3da" style="color:black ;" onclick="location.href='data.php'" ><b>New Orders</b>
       </button>
     </p>
     
-    <!-- take us to order status-->
+    <!-- take us to new call center-->
     <p class="btn_perspective">
+      <button class="btn btn-3d btn-3da" style="color:black ;" onclick="location.href='center.php'" ><b>Call Center</b>
+      </button>
+    </p>
+
+     <!-- take us to new supplier-->
+     <p class="btn_perspective">
+      <button class="btn btn-3d btn-3da" style="color:black ;" onclick="location.href='center.php'" ><b>Supplier</b>
+      </button>
+    </p>
+
+    <!-- take us to order status-->
+    <p class="btn_perspective"  style="margin-left:30px;">
       <button class="btn btn-3d btn-3dd" style="color:black ;" onclick="location.href='order.php'"><b>Order Status</b>
       </button>
     </p>

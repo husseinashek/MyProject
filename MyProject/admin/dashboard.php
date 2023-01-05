@@ -15,6 +15,7 @@ $result=mysqli_query($conn,$sql);
 $total=mysqli_fetch_assoc($result);
 $sum=$total['totalsum'];
 
+
 //delivered
 $sql="SELECT * FROM invoice WHERE  order_status='DELIVERED' ";
 $result=mysqli_query($conn,$sql);

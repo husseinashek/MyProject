@@ -167,6 +167,7 @@
   <option>data entry</option>
   <option>driver</option>
   <option>manager</option>
+  <option>accountant</option>
   </select>
 </div>
 
