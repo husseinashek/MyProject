@@ -3,6 +3,6 @@
 session_start();
 session_destroy();
 
-header("Location: users.php");
+header("Location: sup_login.php");
 
 ?>
