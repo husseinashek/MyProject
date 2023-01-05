@@ -172,7 +172,14 @@
 <label class="col-md-4 control-label">Role</label>  
 <div class="col-md-4 inputGroupContainer">
 <div class="input-group">  
-<input name="role" placeholder="role" class="form-control" type="text" value="<?php echo $row['role']  ?>">
+<select name="role" placeholder="role" class="form-control" type="text" value="<?php echo $row['role']  ?>">
+  <option>call center</option>
+  <option>data entry</option>
+  <option>driver</option>
+  <option>manager</option>
+  <option>accountant</option>
+  </select>
+
 </div>
 </div>
 </div>
