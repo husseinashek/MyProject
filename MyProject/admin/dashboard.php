@@ -38,7 +38,7 @@ $delayed_orders=mysqli_num_rows($result);
 //ongoing
 $sql="SELECT * FROM invoice WHERE  order_status='ONGOING' ";
 $result=mysqli_query($conn,$sql);
-$delayed_orders=mysqli_num_rows($result);
+$ongoing_orders=mysqli_num_rows($result);
 
 
 
@@ -82,7 +82,7 @@ if(isset($_GET['from_date']) && isset($_GET['to_date']))
      //ongoing
      $sql="SELECT * FROM invoice WHERE  order_status='ONGOING' AND insert_date BETWEEN '$from_date' AND '$to_date' ";
      $result=mysqli_query($conn,$sql);
-     $delayed_orders=mysqli_num_rows($result);
+     $ongoing_orders=mysqli_num_rows($result);
 
 
 
@@ -267,7 +267,7 @@ if(isset($_GET['from_date']) && isset($_GET['to_date']))
 
   <div class="col-2  shadow mt-5" style="background-color: white;">
     <h6 class="mt-3 ms-2" style="color: purple;text-align:center">ONGOING ORDERS</h6>
-    <h3 class="mt-3 mb-3" style="text-align: center;color:purple"><?php echo $delayed_orders?></h3>
+    <h3 class="mt-3 mb-3" style="text-align: center;color:purple"><?php echo $ongoing_orders?></h3>
   </div>
 
 
