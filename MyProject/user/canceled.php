@@ -106,7 +106,7 @@ $sum=$total['totalsum'];
   
 
 // 1   2   1   2   1  2   1   3
-$sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_name= supplier_name WHERE full_name= '$full_name' ";
+$sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_name= supplier_name WHERE full_name= '$full_name' AND order_status='CANCELED'  ";
   $result=mysqli_query($conn,$sql);
   while($row = mysqli_fetch_assoc($result)){
     
@@ -123,16 +123,13 @@ $sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_nam
   
     
 
-  <?php }
-}
   
-  ?>
 </td>
 <td style="text-align:center ;">
  <?php
-  $sql="SELECT supplier.*, customer.* FROM supplier  INNER JOIN customer ON full_name= supp_name  WHERE  full_name= '$full_name' ";
-$result=mysqli_query($conn,$sql);
-while($row = mysqli_fetch_assoc($result)){
+  $sql="SELECT supplier.*, customer.* FROM supplier  INNER JOIN customer ON full_name= supp_name  WHERE  full_name= '$full_name' AND invoice_id='$invoice_nb' ";
+  $result=mysqli_query($conn,$sql);
+  while($row = mysqli_fetch_assoc($result)){
 
 $full_name1=$row['full_name1']; 
 ?>
@@ -142,7 +139,7 @@ $full_name1=$row['full_name1'];
  <br><b><?php echo $full_name1 ; ?></b> </br> 
 
  
-<?php } ?>
+<?php } }}?>
 
 
 </td>
@@ -154,11 +151,13 @@ $full_name1=$row['full_name1'];
 </table>
     </div>
 </div>
-
 <div class="row justify-content-evenly  mt-5">
   <div class="col-3  shadow" style="background-color: white;">
+  <a href="supp_orders.php" style="color: white;">
     <h6 class="mt-3 ms-3" style="color: darkgrey;">TOTAL ORDERS</h6>
+  </a>
     <h3 class="mt-3 mb-3 ms-3"><?php echo $leb_orders?></h3>
+  
   </div>
 
 
@@ -211,17 +210,6 @@ $full_name1=$row['full_name1'];
 
 
 
-
-
-
-
-
-
-
-
-
 </div>
 </body>
-
-  </html>
-
+</html>
