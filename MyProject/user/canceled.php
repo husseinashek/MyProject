@@ -45,31 +45,8 @@ while($row = mysqli_fetch_assoc($result)){
 </head>
 <body>
            <br>
-<div class="container" style="margin-left: 500px ; ">
-    <div class="row col-md-6 col-md-offset-2 custyle">
-  <table class="table table-striped custab" border="1">
- 
-  
-  
-   
-   
-   <thead style="background-color: #FFD233 ;">
-
-<th style="text-align:center ;" colspan="2">Supplier Name:
- <b><?php echo $full_name; ?></b><?php 
-?>
-</th>
-</thead>
-   
-   <th style="text-align:center ;">Invoice Number:</th>
-    <th style="text-align:center ;">Customer Name: </th> 
-
-    <tr>
-<td style="text-align:center ;">
-
-<?php
-
-//leabanon
+           <?php
+           //leabanon
 $sql1="SELECT * FROM invoice WHERE supplier_name='$full_name'";
 $result1=mysqli_query($conn,$sql1);
 $leb_orders=mysqli_num_rows($result1);
@@ -103,55 +80,9 @@ $sum=$total['totalsum'];
   $sql="SELECT * FROM invoice WHERE  order_status='ONGOING' AND supplier_name='$full_name' ";
   $result=mysqli_query($conn,$sql);
   $ongoing_orders=mysqli_num_rows($result);
-  
-
-// 1   2   1   2   1  2   1   3
-$sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_name= supplier_name WHERE full_name= '$full_name' AND order_status='CANCELED'  ";
-  $result=mysqli_query($conn,$sql);
-  while($row = mysqli_fetch_assoc($result)){
-    
-  $invoice_nb=$row['invoice_number'];
-  
-
-
   ?>
-  
-  
-  
 
-<br> <a href="details.php?id= <?php echo $invoice_nb ;?> " style="color: black;"> <b><?php echo $invoice_nb; ?></b> </a> </br>
-  
-    
-
-  
-</td>
-<td style="text-align:center ;">
- <?php
-  $sql="SELECT supplier.*, customer.* FROM supplier  INNER JOIN customer ON full_name= supp_name  WHERE  full_name= '$full_name' AND invoice_id='$invoice_nb' ";
-  $result=mysqli_query($conn,$sql);
-  while($row = mysqli_fetch_assoc($result)){
-
-$full_name1=$row['full_name1']; 
-?>
- 
- 
- 
- <br><b><?php echo $full_name1 ; ?></b> </br> 
-
- 
-<?php } }}?>
-
-
-</td>
-
- 
-
-
-
-</table>
-    </div>
-</div>
-<div class="row justify-content-evenly  mt-5">
+  <div class="row justify-content-evenly  mt-5">
   <div class="col-3  shadow" style="background-color: white;">
   <a href="supp_orders.php" style="color: white;">
     <h6 class="mt-3 ms-3" style="color: darkgrey;">TOTAL ORDERS</h6>
@@ -211,5 +142,85 @@ $full_name1=$row['full_name1'];
 
 
 </div>
+
+<br>
+<h2 style="text-align: center;"> For More Info :  </h2>
+
+<br>
+<br>
+
+<div class="container" style="margin-left: 500px ; ">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+  <table class="table table-striped custab" border="1">
+ 
+  
+  
+   
+   
+   <thead style="background-color: #FFD233 ;">
+
+<th style="text-align:center ;" colspan="2">Supplier Name:
+ <b><?php echo $full_name; ?></b><?php 
+?>
+</th>
+</thead>
+   
+   <th style="text-align:center ;">Invoice Number:</th>
+    <th style="text-align:center ;">Customer Name: </th> 
+
+    <tr>
+<td style="text-align:center ;">
+
+<?php
+
+
+
+// 1   2   1   2   1  2   1   3
+$sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_name= supplier_name WHERE full_name= '$full_name' AND order_status='CANCELED'  ";
+  $result=mysqli_query($conn,$sql);
+  while($row = mysqli_fetch_assoc($result)){
+    
+  $invoice_nb=$row['invoice_number'];
+  
+
+
+  ?>
+  
+  
+  
+
+<br> <a href="details.php?id= <?php echo $invoice_nb ;?> " style="color: black;"> <b><?php echo $invoice_nb; ?></b> </a> </br>
+  
+    
+
+  
+</td>
+<td style="text-align:center ;">
+ <?php
+  $sql="SELECT supplier.*, customer.* FROM supplier  INNER JOIN customer ON full_name= supp_name  WHERE  full_name= '$full_name' AND invoice_id='$invoice_nb' ";
+  $result=mysqli_query($conn,$sql);
+  while($row = mysqli_fetch_assoc($result)){
+
+$full_name1=$row['full_name1']; 
+?>
+ 
+ 
+ 
+ <br><b><?php echo $full_name1 ; ?></b> </br> 
+
+ 
+<?php } }}?>
+
+
+</td>
+
+ 
+
+
+
+</table>
+    </div>
+</div>
+
 </body>
 </html>

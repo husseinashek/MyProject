@@ -50,36 +50,7 @@ session_start();?>
     <nav class="navbar navbar-light bg-warning shadow font1 ">
         <div class="container-fluid ">
           <a class="navbar-brand " href="#">Delivery Company MS</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">GO TO</h5>
-              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="admin.php">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="data.php">Data Entry</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="center.php">Call center</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="sup.php">Suppliers</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="order.php">Order Status</a>
-                  </li>
-
-            </div>
-          </div>
+      
         </div>
       </nav>
 
@@ -370,14 +341,7 @@ session_start();?>
 
 
     </div>
-       
-    
-
       
-      
-    
-
-
 
 
 
@@ -407,6 +371,47 @@ if (isset($_POST['s_search'])){
 
 $full_name=$_POST['fullname'];
   
+
+
+// taking info about status of orders
+
+//leabanon
+$sql1="SELECT * FROM invoice WHERE supplier_name='$full_name'";
+$result1=mysqli_query($conn,$sql1);
+$leb_orders=mysqli_num_rows($result1);
+
+$sql="SELECT SUM(delivery_charge) AS totalsum FROM invoice WHERE order_status='DELIVERED' AND supplier_name='$full_name'";
+$result=mysqli_query($conn,$sql);
+$total=mysqli_fetch_assoc($result);
+$sum=$total['totalsum'];
+
+  //delivered
+  $sql="SELECT * FROM invoice WHERE  order_status='DELIVERED' AND supplier_name='$full_name' ";
+  $result=mysqli_query($conn,$sql);
+  $delivered_orders=mysqli_num_rows($result);
+  
+  //NEW
+  $sql="SELECT * FROM invoice WHERE  order_status='NEW' AND supplier_name='$full_name' ";
+  $result=mysqli_query($conn,$sql);
+  $new_orders=mysqli_num_rows($result);
+  
+  //canceled
+  $sql="SELECT * FROM invoice WHERE  order_status='CANCELED' AND supplier_name='$full_name' ";
+  $result=mysqli_query($conn,$sql);
+  $canceled_orders=mysqli_num_rows($result);
+  
+  //delayed
+  $sql="SELECT * FROM invoice WHERE  order_status='DELAYED' AND supplier_name='$full_name' ";
+  $result=mysqli_query($conn,$sql);
+  $delayed_orders=mysqli_num_rows($result);
+  
+  //ongoing
+  $sql="SELECT * FROM invoice WHERE  order_status='ONGOING' AND supplier_name='$full_name' ";
+  $result=mysqli_query($conn,$sql);
+  $ongoing_orders=mysqli_num_rows($result);
+  
+  
+//choosing supp accourding to search
 $sql = "SELECT * FROM supplier WHERE full_name='$full_name'";
 $result=mysqli_query($conn,$sql);
 while($row = mysqli_fetch_assoc($result)){
@@ -414,7 +419,8 @@ while($row = mysqli_fetch_assoc($result)){
 
 
   
-$full_name=$row['full_name'];?>
+$full_name=$row['full_name'];
+?>
    
    
    <thead style="background-color: #FFD233 ;">
@@ -430,6 +436,7 @@ $full_name=$row['full_name'];?>
     <tr>
 <td style="text-align:center ;">
 <?php
+
 // 1   2   1   2   1  2   1   3
 
 $sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_name= supplier_name WHERE full_name= '$full_name' ";
@@ -474,8 +481,61 @@ $full_name1=$row['full_name1'];
 </table>
     </div>
 </div>
-<?php } ?>
-</body>
 
+
+<div class="row justify-content-evenly  mt-5">
+  <div class="col-3  shadow" style="background-color: white;">
+    <h6 class="mt-3 ms-3" style="color: darkgrey;">TOTAL ORDERS</h6>
+    <h3 class="mt-3 mb-3 ms-3"><?php echo $leb_orders?></h3>
+  </div>
+
+
+  <div class="col-3  shadow ms-5" style="background-color: white;">
+    <h6 class="mt-3 ms-3" style="color: darkgrey;">TOTAL EARNINGS</h6>
+    <h3 class="mt-3 mb-3 ms-3"><?php echo $sum?> LBP   </h3>
+  </div>
+
+</div>
+
+
+<div class="row justify-content-evenly  mt-5">
+  <div class="col-2  shadow mt-5" style="background-color: white;">
+  <a href="delivered.php" style="color: white;">
+    <h6 class="mt-3 ms-2" style="color: green;text-align:center">DELIVERED ORDERS</h6>
+    <h3 class="mt-3 mb-3" style="text-align: center;color:green"><?php echo $delivered_orders?></h3>
+  </a>
+  </div>
+
+  <div class="col-2  shadow mt-5" style="background-color: white;">
+  <a href="/MyProject/user/canceled.php" style="color: white;">
+    <h6 class="mt-3 ms-2" style="color: red;text-align:center">CANCELED ORDERS</h6>
+    <h3 class="mt-3 mb-3" style="text-align: center; color:red"><?php echo $canceled_orders?></h3>
+  </a>
+  </div>
+
+  <div class="col-2  shadow mt-5" style="background-color: white;">
+  <a href="new.php" style="color: white;">
+    <h6 class="mt-3 " style="color: blue; text-align:center">NEW ORDERS</h6>
+    <h3 class="mt-3 mb-3" style="text-align: center; color:blue"><?php echo $new_orders?></h3>
+  </a>
+  </div>
+
+  <div class="col-2  shadow mt-5" style="background-color: white;">
+  <a href="delayed.php" style="color: white;">
+    <h6 class="mt-3 ms-2" style="color: purple;text-align:center">DELAYED ORDERS</h6>
+    <h3 class="mt-3 mb-3" style="text-align: center;color:purple"><?php echo $delayed_orders?></h3>
+  </a>
+  </div>
+
+  <div class="col-2  shadow mt-5" style="background-color: white;">
+  <a href="ongoing.php" style="color: white;">
+    <h6 class="mt-3 ms-2" style="color: purple;text-align:center">ONGOING ORDERS</h6>
+    <h3 class="mt-3 mb-3" style="text-align: center;color:purple"><?php echo $ongoing_orders?></h3>
+  </a>
+  </div>
+
+</div>
+</body>
+<?php } ?>
   </html>
 

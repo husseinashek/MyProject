@@ -230,20 +230,20 @@ h2{
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="admin.php">Home</a>
+                  <a class="nav-link active" aria-current="page" href="call_emp.php">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="data.php">Data Entry</a>
+                  <a class="nav-link" href="/MyProject/admin/center.php">Find Order</a>
                 </li>
                
 
                   <li class="nav-item">
-                    <a class="nav-link" href="order.php">Order Status</a>
+                    <a class="nav-link" href="/MyProject/admin/sup.php">Supplier</a>
                   </li>
 
                   
 
-              
+             
             </div>
           </div>
         </div>
@@ -259,41 +259,22 @@ h2{
       <a href="logout.php"  style="color:black"> <i  class="fa fa-sign-out cursor position-absolute top-0 end-0 mt-2 me-3 " style="font-size:28px" ></i>  </a>
       </div>
 
-      
+      <br>
+      <br>
 
-      <div class="container">
+      <div class="container" >
   <section class="3d-buttons">
-    <h2 style="color:black ;">Manager</h2>
- <br>
- <br>
- 
-     <!-- take us to new orders-->
+    <h2 style="color:black ;">Call Center</h2>
     <p class="btn_perspective">
-      <button class="btn btn-3d btn-3da" style="color:black ;" onclick="location.href='data.php'" ><b>New Orders</b>
+      
+    <!-- take us to call center-->
+      <button class="btn btn-3d btn-3da" style="color:black ;" onclick="location.href='/MyProject/admin/center.php'" ><b>Find Orders</b>
       </button>
     </p>
     
-    <!-- take us to new call center-->
+    <!-- add new supp-->
     <p class="btn_perspective">
-      <button class="btn btn-3d btn-3da" style="color:black ;" onclick="location.href='center.php'" ><b>Call Center</b>
-      </button>
-    </p>
-
-     <!-- take us to new supplier-->
-     <p class="btn_perspective">
-      <button class="btn btn-3d btn-3da" style="color:black ;" onclick="location.href='center.php'" ><b>Supplier</b>
-      </button>
-    </p>
-
-    <!-- take us to order status-->
-    <p class="btn_perspective" >
-      <button class="btn btn-3d btn-3dd" style="color:black ;" onclick="location.href='order.php'"><b>Order Status</b>
-      </button>
-    </p>
-   
-      <!-- take us to employee -->
-      <p class="btn_perspective" >
-      <button class="btn btn-3d btn-3dd" style="color:black ;" onclick="location.href='emp.php'"><b>Employees</b>
+      <button class="btn btn-3d btn-3dd" style="color:black ;" onclick="location.href='/MyProject/admin/sup.php'"><b>New Supplier</b>
       </button>
     </p>
 

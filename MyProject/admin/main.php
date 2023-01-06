@@ -33,7 +33,7 @@ $result = mysqli_query($conn, $sql);
 if ($result->num_rows > 0) {
  $row = mysqli_fetch_assoc($result);
  $_SESSION['username'] = $row['username'];
- header("Location: data_emp.php");}
+ header("Location: /MyProject/admin/employees/data_emp.php");}
 		
 
  $sql = "SELECT * FROM employee WHERE username='$username' AND password='$password' AND role='manager' ";
@@ -41,14 +41,14 @@ $result = mysqli_query($conn, $sql);
 if ($result->num_rows > 0) {
  $row = mysqli_fetch_assoc($result);
  $_SESSION['username'] = $row['username'];
- header("Location: manager_emp.php");}
+ header("Location: /MyProject/admin/employees/manager_emp.php");}
 
  $sql = "SELECT * FROM employee WHERE username='$username' AND password='$password' AND role='accountant' ";
  $result = mysqli_query($conn, $sql);
  if ($result->num_rows > 0) {
   $row = mysqli_fetch_assoc($result);
   $_SESSION['username'] = $row['username'];
-  header("Location: dashboard.php");}
+  header("Location:/MyProject/admin/employees/dashboard.php");}
 
 
 	  else {$sql = "SELECT * FROM employee WHERE username='$username' AND password='$password' AND role='call center' ";
@@ -56,7 +56,7 @@ if ($result->num_rows > 0) {
 			if ($result->num_rows > 0) {
 			 $row = mysqli_fetch_assoc($result);
 			 $_SESSION['username'] = $row['username'];
-			 header("Location: call_emp.php");}
+			 header("Location: /MyProject/admin/employees/call_emp.php");}
              
 			 echo "<script>alert('Woops! username or Password is Wrong.')</script>";
 	}

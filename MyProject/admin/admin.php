@@ -176,11 +176,11 @@ error_reporting(0);
            <!--Employees-->
            
           <div class="col ">
-          <a href="emp.php">
+          <a href="/MyProject/admin/employees/emp.php">
           <div class="card card1 border  shadow  font1 " style="width: 18rem;">
             <img src="img/emp.png" class="card-img-top" alt="...">
             <div class="card-body">
-              <a href="emp.php" class="btn btn-warning d-grid gap-2 card2">Employees</a>
+              <a href="/MyProject/admin/employees/emp.php" class="btn btn-warning d-grid gap-2 card2">Employees</a>
             </div>
           </div>
             </a>
