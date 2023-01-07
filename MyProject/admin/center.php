@@ -444,9 +444,9 @@ $sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_nam
   while($row = mysqli_fetch_assoc($result)){
     
   $invoice_nb=$row['invoice_number'];
-  $suppl= $row['full_name'];?>
-  
-
+  $suppl= $row['full_name'];
+  $order=$row['order_status'];
+  ?>
   
 
   <br> <a href="details.php?id= <?php echo $invoice_nb ;?> " style="color: black;"> <b><?php echo $invoice_nb; ?></b> </a> </br>
@@ -507,7 +507,7 @@ $full_name1=$row['full_name1'];
   </div>
 
   <div class="col-2  shadow mt-5" style="background-color: white;">
-  <a href="/MyProject/user/canceled.php" style="color: white;">
+  <a href="canceled.php" style="color: white;">
     <h6 class="mt-3 ms-2" style="color: red;text-align:center">CANCELED ORDERS</h6>
     <h3 class="mt-3 mb-3" style="text-align: center; color:red"><?php echo $canceled_orders?></h3>
   </a>

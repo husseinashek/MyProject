@@ -187,26 +187,24 @@ $sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_nam
 
 <br> <a href="details.php?id= <?php echo $invoice_nb ;?> " style="color: black;"> <b><?php echo $invoice_nb; ?></b> </a> </br>
   
-    
-
+<?php } ?>
   
-</td>
-<td style="text-align:center ;">
- <?php
-  $sql="SELECT supplier.*, customer.* FROM supplier  INNER JOIN customer ON full_name= supp_name  WHERE  full_name= '$full_name' AND invoice_id='$invoice_nb' ";
+  </td>
+  <td style="text-align:center ;">
+   <?php
+    $sql="SELECT invoice.*, customer.* FROM invoice  INNER JOIN customer ON invoice_number= invoice_id  WHERE  order_status= 'delivered' AND supplier_name='$full_name' ";
   $result=mysqli_query($conn,$sql);
   while($row = mysqli_fetch_assoc($result)){
-
-$full_name1=$row['full_name1']; 
-?>
- 
- 
- 
- <br><b><?php echo $full_name1 ; ?></b> </br> 
-
- 
-<?php } }}?>
-
+  
+  $full_name1=$row['full_name1']; 
+  ?>
+   
+   
+   
+   <br><b><?php echo $full_name1 ; ?></b> </br> 
+  
+   
+  <?php }}?>
 
 </td>
 
