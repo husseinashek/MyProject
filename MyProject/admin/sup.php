@@ -327,7 +327,7 @@ $primary_phone_number=$_POST['primary_phone_number2'];
 
       <div class="mt-5">
       <?php echo $suppliers; ?>
-      <button name="Payment" class="btn btn-warning ms-5" type="submit" onclick="window.location.href = 'payment.php';" style="width: 350px;">Payment</button>
+      <a href="payment.php?id=<?php echo $row['full_name']; ?>" class='btn btn-warning ms-5' style="width: 350px;" >Payment</a>
       </div>
 
 
