@@ -219,14 +219,16 @@ h1 {
       $MySum=$row['delivery_charge']+$MySum;
     }  ?>
 
-      <tfoot style="background-color: #FFC107;">
+     
+    </tbody>
+    <br>
+    <tfoot style="background-color: #FFC107;">
     <tr>
       <th colspan="2"><b>Total :</b></th>
-      <td ><b>For Delivery: &nbsp<?php echo $MySum ?></b></td>
-      <td ><b>For Order: &nbsp<?php echo $OrderSum ?></b></td>
+      <td ><b> &nbsp &nbsp Delivery: &nbsp<?php echo $MySum ?></b></td>
+      <td ><b> &nbsp &nbsp Order: &nbsp<?php echo $OrderSum ?></b></td>
     </tr>
    </tfoot>
-    </tbody>
   </table>
  </div> 
 </body>
