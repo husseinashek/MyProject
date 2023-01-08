@@ -263,9 +263,12 @@ $primary_phone_number=$_POST['primary_phone_number2'];
                   <div class="d-flex">
                     
                     <button name="search" class="btn btn-warning ms-5" type="submit">Search</button>
+                 
                     </div>
+                   
                     <div class="row mt-5" >
         <div class="col" style = "position:relative; left:-800px; ">
+        
            <div class="card shadow" style="width: 18rem;">
            <div class="card-body">
             <h5 class="card-title bg-warning border rounded" style="text-align: center;">Supplier Info</h5>
@@ -282,17 +285,19 @@ $primary_phone_number=$_POST['primary_phone_number2'];
             
 
             </div>
+            
                   </div>
             
+                   
+                 
+
             </div>
+         
+
           
+           
 
-
-
-
-
-
-
+           
 
           </div>
 
@@ -305,7 +310,7 @@ $primary_phone_number=$_POST['primary_phone_number2'];
           
           
           
-          
+        
           
           
             </div>
@@ -317,12 +322,13 @@ $primary_phone_number=$_POST['primary_phone_number2'];
 
 
       </div>
-      
+   
 
 
       <div class="mt-5">
-      <?php echo $suppliers; ?>;
+      <?php echo $suppliers; ?>
+      <button name="Payment" class="btn btn-warning ms-5" type="submit" onclick="window.location.href = 'payment.php';" style="width: 350px;">Payment</button>
       </div>
 
 
-        
+     
