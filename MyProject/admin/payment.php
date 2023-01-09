@@ -29,8 +29,7 @@
 
 
     <!-- Navbar -->
-
- <nav class="navbar navbar-light bg-warning shadow font1 ">
+ <nav class="navbar navbar-light bg-warning shadow font1 " style="margin-top:-30px;">
         <div class="container-fluid ">
           <a class="navbar-brand " href="#">Delivery Company MS</a>
          
@@ -225,8 +224,8 @@ h1 {
     <tfoot style="background-color: #FFC107;">
     <tr>
       <th colspan="2"><b>Total :</b></th>
-      <td ><b> &nbsp &nbsp Delivery: &nbsp<?php echo $MySum ?></b></td>
-      <td ><b> &nbsp &nbsp Order: &nbsp<?php echo $OrderSum ?></b></td>
+      <td ><b> &nbsp &nbsp &nbsp &nbsp Delivery: &nbsp<?php echo $MySum ?></b></td>
+      <td ><b> &nbsp &nbsp &nbsp &nbsp Order: &nbsp<?php echo $OrderSum ?></b></td>
     </tr>
    </tfoot>
   </table>
