@@ -489,10 +489,7 @@ $sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_nam
 ?>
 
 <br><b><?php echo $order; ?></b> </br>
-
-<?php 
-
-}?>
+<?php }?>
 </td>
 
 </table>
