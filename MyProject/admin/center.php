@@ -425,7 +425,7 @@ $full_name=$row['full_name'];
    
    <thead style="background-color: #FFD233 ;">
 
-<th style="text-align:center ;" colspan="2">Supplier Name:
+<th style="text-align:center ;" colspan="3">Supplier Name:
  <b><?php echo $full_name; ?></b><?php }
 ?>
 </th>
@@ -433,6 +433,7 @@ $full_name=$row['full_name'];
    
    <th style="text-align:center ;">Invoice Number:</th>
     <th style="text-align:center ;">Customer Name:</th> 
+    <th style="text-align:center ;">Order Status:</th>
     <tr>
 <td style="text-align:center ;">
 <?php
@@ -445,7 +446,6 @@ $sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_nam
     
   $invoice_nb=$row['invoice_number'];
   $suppl= $row['full_name'];
-  $order=$row['order_status'];
   ?>
   
 
@@ -477,6 +477,23 @@ $full_name1=$row['full_name1'];
 
 </td>
 
+<td style="text-align:center ;">
+<?php
+
+$sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_name= supplier_name WHERE full_name= '$full_name' ";
+  $result=mysqli_query($conn,$sql);
+  while($row = mysqli_fetch_assoc($result)){
+
+    $order=$row['order_status'];
+
+?>
+
+<br><b><?php echo $order; ?></b> </br>
+
+<?php 
+
+}?>
+</td>
 
 </table>
     </div>
@@ -500,38 +517,28 @@ $full_name1=$row['full_name1'];
 
 <div class="row justify-content-evenly  mt-5">
   <div class="col-2  shadow mt-5" style="background-color: white;">
-  <a href="delivered.php" style="color: white;">
     <h6 class="mt-3 ms-2" style="color: green;text-align:center">DELIVERED ORDERS</h6>
     <h3 class="mt-3 mb-3" style="text-align: center;color:green"><?php echo $delivered_orders?></h3>
-  </a>
   </div>
 
   <div class="col-2  shadow mt-5" style="background-color: white;">
-  <a href="canceled.php" style="color: white;">
     <h6 class="mt-3 ms-2" style="color: red;text-align:center">CANCELED ORDERS</h6>
     <h3 class="mt-3 mb-3" style="text-align: center; color:red"><?php echo $canceled_orders?></h3>
-  </a>
   </div>
 
   <div class="col-2  shadow mt-5" style="background-color: white;">
-  <a href="new.php" style="color: white;">
     <h6 class="mt-3 " style="color: blue; text-align:center">NEW ORDERS</h6>
     <h3 class="mt-3 mb-3" style="text-align: center; color:blue"><?php echo $new_orders?></h3>
-  </a>
   </div>
 
   <div class="col-2  shadow mt-5" style="background-color: white;">
-  <a href="delayed.php" style="color: white;">
     <h6 class="mt-3 ms-2" style="color: purple;text-align:center">DELAYED ORDERS</h6>
     <h3 class="mt-3 mb-3" style="text-align: center;color:purple"><?php echo $delayed_orders?></h3>
-  </a>
   </div>
 
   <div class="col-2  shadow mt-5" style="background-color: white;">
-  <a href="ongoing.php" style="color: white;">
     <h6 class="mt-3 ms-2" style="color: purple;text-align:center">ONGOING ORDERS</h6>
     <h3 class="mt-3 mb-3" style="text-align: center;color:purple"><?php echo $ongoing_orders?></h3>
-  </a>
   </div>
 
 </div>

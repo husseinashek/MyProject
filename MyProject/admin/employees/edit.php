@@ -79,7 +79,7 @@
 <body>
 
 
-	<h2>Update Employee</h2><br>
+	<h2>Edit Employee</h2><br>
 
 	
 
@@ -108,10 +108,10 @@
 
 <!-- Username Text input-->
    <div class="form-group">
-<label class="col-md-4 control-label">Username</label>  
+<label class="col-md-4 control-label" >Username</label>  
 <div class="col-md-4 inputGroupContainer">
 <div class="input-group">	
-<input name="username" placeholder="username" class="form-control"  type="text" value="<?php echo $row['username']  ?>">
+<input name="username" placeholder="username" class="form-control"  type="text" value="<?php echo $row['username']  ?>" disabled>
 </div>
 </div>
 </div>
