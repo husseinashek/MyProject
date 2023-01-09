@@ -62,8 +62,16 @@
     }
   }
   
-  
-
+  if(isset($_POST['breakable']) == '1')
+  {
+    $sql44="insert into invoice (breakable) values('1') ";
+    $result = mysqli_query($conn,$sql44);
+  }
+  if(isset($_POST['returnn']) == '1')
+  {
+    $sql45="insert into invoice (returnn) values('1') ";
+    $result = mysqli_query($conn,$sql45);
+  }
 ?> 
 
 
@@ -308,7 +316,7 @@
      <div class="row">
             <div class="col">
               <div class="form-check mt-4 ms-3 mb-3">
-                <input  name="breakable" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <input  name="breakable" class="form-check-input" type="checkbox" value="1" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                   Breakable
                 </label>
@@ -318,7 +326,7 @@
 
             <div class="col ms-4">
               <div class="form-check ms-3 mt-4">
-                <input  name="return" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <input  name="returnn" class="form-check-input" type="checkbox" value="1" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                   Return
                 </label>
