@@ -191,11 +191,11 @@ if (!isset($_SESSION['email'])) {
               <h3>Free Plan</h3>
               <h4><sup>$</sup>0<span>per month</span></h4>
               <ul>
-                <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                <li class="na"><i class="bx bx-x"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
+                <li><i class="bx bx-check"></i> deliver food</li>
+                <li><i class="bx bx-check"></i> deliver accessories</li>
+                <li><i class="bx bx-check"></i> deliver small and medium objects</li>
+                <li class="na"><i class="bx bx-x"></i> <span>deliver large objects</span></li>
+                <li class="na"><i class="bx bx-x"></i> <span>deliver with V.I.P services</span></li>
               </ul>
               <a href="#" class="buy-btn">Get Started</a>
             </div>
@@ -203,14 +203,14 @@ if (!isset($_SESSION['email'])) {
 
           <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
             <div class="box featured">
-              <h3>Business Plan</h3>
+              <h3>Medium Plan</h3>
               <h4><sup>$</sup>29<span>per month</span></h4>
               <ul>
-                <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-                <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
+                <li><i class="bx bx-check"></i> deliver food</li>
+                <li><i class="bx bx-check"></i> deliver accessories</li>
+                <li><i class="bx bx-check"></i> deliver small and medium objects</li>
+                <li><i class="bx bx-check"></i> deliver large objects</li>
+                <li class="na"><i class="bx bx-x"></i> <span>deliver with V.I.P services</span></li>
               </ul>
               <a href="#" class="buy-btn">Get Started</a>
             </div>
@@ -218,14 +218,14 @@ if (!isset($_SESSION['email'])) {
 
           <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
             <div class="box">
-              <h3>Developer Plan</h3>
+              <h3>V.I.P Plan</h3>
               <h4><sup>$</sup>49<span>per month</span></h4>
               <ul>
-                <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-                <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
+                <li><i class="bx bx-check"></i> deliver food</li>
+                <li><i class="bx bx-check"></i> deliver accessories</li>
+                <li><i class="bx bx-check"></i> deliver small and medium objects</li>
+                <li><i class="bx bx-check"></i> deliver large objects</li>
+                <li><i class="bx bx-check"></i> <span>deliver with V.I.P services</span></li>
               </ul>
               <a href="#" class="buy-btn">Get Started</a>
             </div>
