@@ -6,10 +6,10 @@
 
 
 
-
-
-
       $invoice_number=$_GET['id'];
+
+
+      
       $sql="select * FROM invoice WHERE invoice_number= '$invoice_number'";
       $result=mysqli_query($conn,$sql);
       
