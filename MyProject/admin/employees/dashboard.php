@@ -148,20 +148,20 @@ if(isset($_GET['from_date']) && isset($_GET['to_date']))
     <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item">
-          <a class="nav-link active  " aria-current="page" href="/MyProject/admin/employees/dashboard.php">Dashboard</a>
+          <a class="nav-link active  " aria-current="page" href="dashboard.php">Dashboard</a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link active " href="/MyProject/admin/graph.php">Graphs</a>
+          <a class="nav-link active " href="graph.php">Graphs</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Regions
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/MyProject/admin/beirut.php">Beirut</a></li>
-            <li><a class="dropdown-item" href="/MyProject/admin/south.php">South </a></li>
-            <li><a class="dropdown-item" href="/MyProject/admin/north.php">North </a></li>
-            <li><a class="dropdown-item" href="/MyProject/admin/bekaa.php">Bekaa </a></li>
+            <li><a class="dropdown-item" href="beirut.php">Beirut</a></li>
+            <li><a class="dropdown-item" href="south.php">South </a></li>
+            <li><a class="dropdown-item" href="north.php">North </a></li>
+            <li><a class="dropdown-item" href="bekaa.php">Bekaa </a></li>
             
           </ul>
         </li>

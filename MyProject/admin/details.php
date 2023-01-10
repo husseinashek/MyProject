@@ -21,6 +21,8 @@
         $note=$row['note'];
         $order=$row['order_status'];
         $date=$row['insert_date'];
+        $status_date=$row['status_date'];
+
 
         if($row['returnn']==0){
             $return="YES";
@@ -63,7 +65,6 @@
 
 
     }
-
 
 
 
@@ -165,6 +166,9 @@ font-family: 'Roboto Serif', sans-serif;
         </div>
       </form>
       </div>
+
+
+     <?php if (!isset($_POST['s_search']) || !isset($_POST['s_search'])){   ?>
       
    <div style= " margin-left: 120px;">
 
@@ -303,7 +307,7 @@ font-family: 'Roboto Serif', sans-serif;
             <div class="mt-3">
             <p>Order Status : <b><?php echo $order ?> </b></p>
             <p>Created In : <b><?php echo $date; ?> </b></p>
-            <p>Delivered In : <b><?php  ?> </b></p>
+            <p>Status Change In : <b><?php  echo $status_date ?> </b></p>
             
 
             
@@ -347,5 +351,360 @@ font-family: 'Roboto Serif', sans-serif;
     </div>
        
     
+<?php
+
+     }
+
+    if (isset($_POST['s_search'])){
+
+      
+  ?>
+  <br>
+  <div class="container" style="margin-left: 500px ;">
+      <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+   
+    
+    
+    
+     <?php
+  
+  $full_name=$_POST['fullname'];
+    
+  
+  
+  ?>
+     
+     
+     <thead style="background-color: #FFD233 ;">
+  
+  <th style="text-align:center ;" colspan="3">Supplier Name:
+   <b><?php echo $full_name; ?></b>
+  </th>
+  </thead>
+     
+     <th style="text-align:center ;">Invoice Number:</th>
+      <th style="text-align:center ;">Customer Name:</th> 
+      <th style="text-align:center ;">Order Status:</th>
+      <tr>
+  <td style="text-align:center ;">
+  <?php
+  
+  // 1   2   1   2   1  2   1   3
+  
+  $sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_name= supplier_name WHERE full_name= '$full_name' ";
+    $result=mysqli_query($conn,$sql);
+    while($row = mysqli_fetch_assoc($result)){
+      
+    $invoice_nb=$row['invoice_number'];
+    $suppl= $row['full_name'];
+    ?>
+    
+  
+    <br> <a href="details.php?id= <?php echo $invoice_nb ;?> " style="color: black;"> <b><?php echo $invoice_nb; ?></b> </a> </br>
+    
+  
+  
+    <?php }
+  
+    
+    ?>
+  </td>
+  <td style="text-align:center ;">
+   <?php
+    $sql="SELECT supplier.*, customer.* FROM supplier  INNER JOIN customer ON full_name= supp_name  WHERE  full_name= '$suppl' ";
+  $result=mysqli_query($conn,$sql);
+  while($row = mysqli_fetch_assoc($result)){
+  
+  $full_name1=$row['full_name1']; 
+  ?>
+   
+   
+   
+   <br><b><?php echo $full_name1; ?></b> </br> 
+  
+   <?php }?>
+  
+  
+  </td>
+  
+  <td style="text-align:center ;">
+  
+  <?php
+  
+  $sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_name= supplier_name WHERE full_name= '$full_name' ";
+    $result=mysqli_query($conn,$sql);
+    while($row = mysqli_fetch_assoc($result)){
+  
+      $order=$row['order_status'];
+  
+  ?>
+  
+  <br><b><?php echo $order; ?></b> </br>
+  
+  <?php } }
+  
+ 
+ if (isset($_POST['search'])){
+ 
+ 
+  $invoice_nb=$_POST['invoice_nb'];
+    
+  
+  $sql = "SELECT * FROM invoice WHERE invoice_number='$invoice_nb'";
+  $result=mysqli_query($conn,$sql);
+  $row= mysqli_fetch_array($result);
+
+  if ($result->num_rows >0) {
+  
+    
+  $invoice_chrg=$row['invoice_charge']." ".$row['currency'];
+  $invoice_nb=$row['invoice_number'];
+  $delivery_chrg=$row['delivery_charge']." ".$row['currency1'];
+  $note=$row['note'];
+  $order=$row['order_status'];
+  $date=$row['insert_date'];
+  $status_date=$row['status_date'];
+
+
+  if($row['returnn']==0){
+    $return="YES";
+  }
+  else{$return="NO";}
+
+  if($row['breakable']==0){
+    $breakable="YES";
+  }
+  else{$breakable="NO";}
+
+
+
+  
+// get customer info
+
+  $sql="SELECT invoice.*, customer.* FROM invoice  INNER JOIN customer ON invoice_number= invoice_ID WHERE invoice_number= '$invoice_nb' ";
+  $result=mysqli_query($conn,$sql);
+  $row= mysqli_fetch_array($result);
+
+  $full_name=$row['full_name1'];
+  $primary_phone_number=$row['primary_phone_number'];
+  $secondary_phone_number=$row['secondary_phone_number'];
  
 
+//get address info
+
+  $sql="SELECT invoice.*, address1.* FROM invoice  INNER JOIN address1 ON invoice_number= invoice_no WHERE invoice_number= '$invoice_nb' ";
+  $result=mysqli_query($conn,$sql);
+  $row= mysqli_fetch_array($result);
+
+  $region=$row['region'];
+  $city=$row['city'];
+  $street=$row['street'];
+
+
+  //get supplier info
+
+  $sql="SELECT invoice.*, supplier.* FROM invoice  INNER JOIN supplier ON supplier_name= full_name WHERE invoice_number= '$invoice_nb' ";
+  $result=mysqli_query($conn,$sql);
+  $row= mysqli_fetch_array($result);
+
+  $full_name1=$row['full_name'];
+  $primary_phone_number1=$row['primary_phone_number'];
+  $region1=$row['region']; 
+
+?>
+
+
+
+
+   <div style= " margin-left: 120px;">
+
+      <div class="container mt-5">
+     
+        <div class="row">
+          
+        <!--fill invoice info-->
+
+        <div class="col">
+           <div class="card shadow " style="width: 18rem;">
+           <div class="card-body">
+            <h5 class="card-title bg-warning border rounded" style="text-align: center;">Invoice Info</h5>
+
+            <div class="mt-3">
+              
+           
+            <p>Invoice Number : <b><?php echo $invoice_nb; ?> </b></p>
+
+            <p>Invoice Charge : <b><?php echo $invoice_chrg; ?> </b></p>
+
+            
+            <p>Delivery Charge : <b><?php echo $delivery_chrg; ?> </b></p>
+
+            </div>
+
+
+
+            </div>
+            </div>
+
+        </div>
+
+
+       <!--fill address info-->
+
+        <div class="col">
+           <div class="card shadow" style="width: 18rem;">
+           <div class="card-body">
+            <h5 class="card-title bg-warning border rounded" style="text-align: center;">Address Info</h5>
+
+            <div class="mt-3">
+            <p>Region : <b><?php echo $region; ?> </b></p>
+            <p>City : <b><?php echo $city; ?> </b></p>
+            <p>Street : <b><?php echo $street; ?> </b></p>
+
+            
+
+            </div>
+
+
+
+            </div>
+            </div>
+
+        </div>
+
+
+
+
+        <!--fill customer info-->
+
+        <div class="col">
+           <div class="card shadow" style="width: 18rem;">
+           <div class="card-body">
+            <h5 class="card-title bg-warning border rounded" style="text-align: center;">Customer Info</h5>
+
+            <div class="mt-3">
+            <p>Full Name : <b><?php echo $full_name; ?> </b></p>
+            <p>Primary Phone Number : <b><?php echo $primary_phone_number; ?> </b></p>
+            <p>Secondary Phone Number : <b><?php echo $secondary_phone_number; ?> </b></p>
+
+            
+
+            </div>
+
+
+
+            </div>
+            </div>
+
+        </div>
+
+
+        <!--fill supplier info-->
+
+        <div class="row mt-5">
+        <div class="col">
+           <div class="card shadow" style="width: 18rem;">
+           <div class="card-body">
+            <h5 class="card-title bg-warning border rounded" style="text-align: center;">Supplier Info</h5>
+
+            <div class="mt-3">
+            <p>Supplier Name : <b><?php echo $full_name1; ?> </b></p>
+            <p>Primary Phone Number : <b><?php echo $primary_phone_number1; ?> </b></p>
+            <p>Region : <b><?php echo $region1; ?> </b></p>
+
+            
+
+            </div>
+
+
+
+            </div>
+            </div>
+
+        </div>
+
+
+      <!--order info-->
+
+        <div class="col">
+           <div class="card shadow" style="width: 18rem;">
+           <div class="card-body">
+            <h5 class="card-title bg-warning border rounded" style="text-align: center;">Order Info</h5>
+
+            <div class="mt-3">
+            <p>Breakable : <b><?php echo $breakable; ?> </b></p>
+            <p>With Return : <b><?php echo $return; ?> </b></p>
+            <p>Note : <b><?php echo $note; ?> </b></p>
+
+            
+
+            </div>
+
+
+
+            </div>
+            </div>
+
+        </div>
+
+
+        <!--order status-->
+
+        <div class="col">
+           <div class="card shadow" style="width: 18rem;">
+           <div class="card-body">
+            <h5 class="card-title bg-warning border rounded" style="text-align: center;">Order Info</h5>
+
+            <div class="mt-3">
+              
+            <p>Order Status : <b><?php echo $order ?> </b></p>
+            <p>Created In : <b><?php echo $date; ?> </b></p>
+            <p>Status Change In : <b><?php  echo $status_date ?> </b></p>
+            
+
+            
+
+            </div>
+
+
+            </div>
+            </div>
+
+        </div>
+
+
+        </div>
+
+        </div>
+          
+      
+</div>     
+      </div>
+
+
+
+
+    </div>
+      
+
+
+
+
+
+ 
+
+
+   
+	
+    <?php  }  
+else{echo '<script>alert("invalid invoice")</script>';}
+}
+  
+      ?>
+
+      <script>
+     if ( window.history.replaceState ) {
+    window.history.replaceState( null, null, window.location.href );
+     }
+  </script>

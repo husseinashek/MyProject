@@ -330,5 +330,9 @@ $primary_phone_number=$_POST['primary_phone_number2'];
       <a href="payment.php?id=<?php echo $row['full_name']; ?>" class='btn btn-warning ms-5' style="width: 350px;" >Payment</a>
       </div>
 
-
+      <script>
+   if ( window.history.replaceState ) {
+	window.history.replaceState( null, null, window.location.href );
+   }
+</script>
      

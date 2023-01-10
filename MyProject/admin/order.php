@@ -6,7 +6,7 @@
  session_start();
 
 
-
+ $date=date("Y/m/d");
 
  if(isset($_POST['apply'])){
 
@@ -34,6 +34,9 @@ $invoice=$row['invoice_number'];
   $sql2="UPDATE invoice SET note='$note' WHERE invoice_number= '$invoice0'";
   $result=mysqli_query($conn,$sql2);
  
+  $sql3="UPDATE invoice SET status_date='$date' WHERE invoice_number= '$invoice0' ";
+  $result=mysqli_query($conn,$sql3);
+
   
   echo '<script>alert("successfuly updated")</script>';}
  }
@@ -200,7 +203,11 @@ $invoice=$row['invoice_number'];
             </div>
 
 
-
+            <script>
+   if ( window.history.replaceState ) {
+	window.history.replaceState( null, null, window.location.href );
+   }
+</script>
 
 
 

@@ -224,6 +224,10 @@ $full_name1=$row['full_name1'];
 </div>
 
 </body>
-
+<script>
+   if ( window.history.replaceState ) {
+	window.history.replaceState( null, null, window.location.href );
+   }
+</script>
   </html>
 

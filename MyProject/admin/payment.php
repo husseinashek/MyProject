@@ -41,6 +41,7 @@
       <div class="bg-warning" style="margin-top:-22px ; height: 40px;">
       <div class="position-relative">
       <i class="fa fa-arrow-circle-left ms-2 mt-2 cursor" style="font-size:24px" onclick="history.back()"></i>
+      
       </div>
       
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -198,7 +199,7 @@ h1 {
   
       <tr>
         <th><span>Invoice Number</span></th>
-        <th><span>Invoice Charge</span></th>
+        <th><span>Total Charge</span></th>
         <th><span>Delivery Charge</span></th>
         <th><span>Order Charge</span></th>
       </tr>
@@ -207,28 +208,29 @@ h1 {
     <?php    while($row = mysqli_fetch_assoc($result)){?>
       <tr>
         <td><?php echo $row['invoice_number']; ?></td>
-        <td><?php echo $row['invoice_charge']; ?></td>
+        <td><?php echo $row['invoice_charge']+$row['delivery_charge'];  ?></td>
         <td><?php echo $row['delivery_charge']; ?></td>
-        <td><?php echo $row['invoice_charge']-$row['delivery_charge'];  ?></td>
+        <td><?php echo $row['invoice_charge'];  ?></td>
        
       </tr>
      
       <?php
-      $OrderSum=$row['invoice_charge']-$row['delivery_charge']+$OrderSum;
+      $OrderSum=$row['invoice_charge']+$OrderSum;
       $MySum=$row['delivery_charge']+$MySum;
     }  ?>
 
      
     </tbody>
     <br>
-    <tfoot style="background-color: #FFC107;">
+    <tfoot style="background-color: #FFC107;" >
     <tr>
-      <th colspan="2"><b>Total :</b></th>
-      <td ><b> &nbsp &nbsp &nbsp &nbsp Delivery: &nbsp<?php echo $MySum ?></b></td>
-      <td ><b> &nbsp &nbsp &nbsp &nbsp Order: &nbsp<?php echo $OrderSum ?></b></td>
+      <th colspan="2" style="font-size: large;"><b>Total :</b></th>
+      <td style="font-size: large;" ><b> &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp<?php echo $MySum ?> &nbsp LBP</b></td>
+      <td style="font-size: large;"><b> &nbsp &nbsp &nbsp &nbsp  &nbsp<?php echo $OrderSum ?> &nbsp LBP</b></td>
     </tr>
    </tfoot>
   </table>
  </div> 
+ 
 </body>
 </html>

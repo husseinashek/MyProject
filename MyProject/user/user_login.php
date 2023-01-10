@@ -59,6 +59,11 @@ if (isset($_POST['submit'])) {
 	</section><!-- content -->
 </div><!-- container -->
 </body>
+<script>
+   if ( window.history.replaceState ) {
+	window.history.replaceState( null, null, window.location.href );
+   }
+</script>
 </html>
 
 

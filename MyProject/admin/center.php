@@ -122,7 +122,9 @@ session_start();?>
   $note=$row['note'];
   $order=$row['order_status'];
   $date=$row['insert_date'];
-  
+  $status_date=$row['status_date'];
+
+
   if($row['returnn']==0){
     $return="YES";
   }
@@ -313,9 +315,10 @@ session_start();?>
             <h5 class="card-title bg-warning border rounded" style="text-align: center;">Order Info</h5>
 
             <div class="mt-3">
+              
             <p>Order Status : <b><?php echo $order ?> </b></p>
             <p>Created In : <b><?php echo $date; ?> </b></p>
-            <p>Delivered In : <b><?php  ?> </b></p>
+            <p>Status Change In : <b><?php  echo $status_date ?> </b></p>
             
 
             
@@ -429,6 +432,7 @@ $full_name1=$row['full_name1'];
 </td>
 
 <td style="text-align:center ;">
+
 <?php
 
 $sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_name= supplier_name WHERE full_name= '$full_name' ";
@@ -440,13 +444,21 @@ $sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_nam
 ?>
 
 <br><b><?php echo $order; ?></b> </br>
+
 <?php } }?>
+
+
 </td>
 
 </table>
     </div>
 </div>
 
+<script>
+   if ( window.history.replaceState ) {
+	window.history.replaceState( null, null, window.location.href );
+   }
+</script>
 
 </body>
 

@@ -107,11 +107,11 @@ error_reporting(0);
       <!-- go back-->
       <div class="bg-warning" style="height: 40px;">
       <div class="position-relative">
-      <i class="fa fa-arrow-circle-left ms-2 mt-2 cursor" style="font-size:24px"  onclick="history.back()"></i>
+     
       <a href="logout.php"  style="color:black"> <i  class="fa fa-sign-out cursor position-absolute top-0 end-0 mt-2 me-3 " style="font-size:28px" ></i>  </a>
       </div>
 
-
+      </div>
 
 
       <div class="container mt-5">
