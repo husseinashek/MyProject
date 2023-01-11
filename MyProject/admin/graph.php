@@ -12,10 +12,10 @@ $sql1="SELECT * FROM invoice WHERE insert_date BETWEEN '2022-12-01' AND '2022-12
 $result1=mysqli_query($conn,$sql1);
 $dec_orders=mysqli_num_rows($result1);
 
-$sql='SELECT SUM(delivery_charge) AS totalsum FROM invoice WHERE order_status="DELIVERED"';
+$sql='SELECT SUM(delivery_charge) AS totalsum FROM invoice WHERE order_status="DELIVERED" AND status_date BETWEEN "2022-12-01" AND "2022-12-31"';
 $result=mysqli_query($conn,$sql);
 $total=mysqli_fetch_assoc($result);
-$sum=$total['totalsum'];
+$dec_sum=$total['totalsum'];
 
 
 
@@ -24,10 +24,10 @@ $sql1="SELECT * FROM invoice WHERE insert_date BETWEEN '2023-01-01' AND '2023-01
 $result1=mysqli_query($conn,$sql1);
 $jan_orders=mysqli_num_rows($result1);
 
-$sql='SELECT SUM(delivery_charge) AS totalsum FROM invoice WHERE order_status="DELIVERED"';
+$sql='SELECT SUM(delivery_charge) AS totalsum FROM invoice WHERE order_status="DELIVERED" AND status_date BETWEEN "2023-01-01" AND "2023-01-31"';
 $result=mysqli_query($conn,$sql);
 $total=mysqli_fetch_assoc($result);
-$sum=$total['totalsum'];    
+$jan_sum=$total['totalsum'];  
 
 
 //November
@@ -35,10 +35,10 @@ $sql1="SELECT * FROM invoice WHERE insert_date BETWEEN '2022-11-01' AND '2022-11
 $result1=mysqli_query($conn,$sql1);
 $nov_orders=mysqli_num_rows($result1);
 
-$sql='SELECT SUM(delivery_charge) AS totalsum FROM invoice WHERE order_status="DELIVERED"';
+$sql='SELECT SUM(delivery_charge) AS totalsum FROM invoice WHERE order_status="DELIVERED" AND status_date BETWEEN "2022-11-01" AND "2022-11-31"';
 $result=mysqli_query($conn,$sql);
 $total=mysqli_fetch_assoc($result);
-$sum=$total['totalsum'];
+$nov_sum=$total['totalsum'];  
 
 
 //October
@@ -46,10 +46,10 @@ $sql1="SELECT * FROM invoice WHERE insert_date BETWEEN '2022-10-01' AND '2022-10
 $result1=mysqli_query($conn,$sql1);
 $oct_orders=mysqli_num_rows($result1);
 
-$sql='SELECT SUM(delivery_charge) AS totalsum FROM invoice WHERE order_status="DELIVERED"';
+$sql='SELECT SUM(delivery_charge) AS totalsum FROM invoice WHERE order_status="DELIVERED" AND status_date BETWEEN "2022-10-01" AND "2022-10-31"';
 $result=mysqli_query($conn,$sql);
 $total=mysqli_fetch_assoc($result);
-$sum=$total['totalsum'];
+$oct_sum=$total['totalsum'];  
 
 
 //Beirut
@@ -76,6 +76,9 @@ $sou_orders=mysqli_num_rows($result4);
 $sql4="SELECT * FROM invoice WHERE invoice_region='mount' ";
 $result4=mysqli_query($conn,$sql4);
 $mou_orders=mysqli_num_rows($result4);
+
+
+
 
 
 
@@ -128,7 +131,7 @@ $mou_orders=mysqli_num_rows($result4);
   
   </style>
 
-  <body>
+  <body >
 
   <!--Navbar-->
 
@@ -179,26 +182,15 @@ $mou_orders=mysqli_num_rows($result4);
 
 </div>  
 
-<div class="row justify-content-around">
-<div class="col-5 ms-3 mt-5 shadow">
+<div class="row justify-content-around ">
+<div class="col-5 ms-2 mt-5 shadow">
 <div id="curve_chart" style="width: 700px; height: 400px"></div>
   </div>
 
-
-
-
+ 
 
 
 </div>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -212,15 +204,15 @@ $mou_orders=mysqli_num_rows($result4);
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses'],
-          ['2004',  1000,      400],
-          ['2005',  1170,      460],
-          ['2006',  660,       1120],
-          ['2007',  1030,      540]
+          ['Year', 'revenue',],
+          ['Oct',  <?php echo $oct_sum?>,      ],
+          ['Nov',  <?php echo $nov_sum?>,      ],
+          ['Dec',  <?php echo $dec_sum?>],       
+          ['Jan',  <?php echo $jan_sum?>,      ]
         ]);
 
         var options = {
-          title: 'Company Performance',
+          title: 'Total Earnings ',
           curveType: 'function',
           legend: { position: 'bottom' }
         };
@@ -244,10 +236,10 @@ $mou_orders=mysqli_num_rows($result4);
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
         ["Element", "Orders", { role: "style" } ],
-        ["Jan", <?php echo $jan_orders?>, "#b87333"],
-        ["Dec ", <?php echo $dec_orders?>, "silver"],
-        ["Nov", <?php echo $nov_orders?>, "gold"],
-        ["Oct", <?php echo $oct_orders?>, "color: #e5e4e2"]
+        ["Jan", <?php echo $jan_orders?>, "red"],
+        ["Dec ", <?php echo $dec_orders?>, "green"],
+        ["Nov", <?php echo $nov_orders?>, "blue"],
+        ["Oct", <?php echo $oct_orders?>, "orange"]
         
       ]);
 

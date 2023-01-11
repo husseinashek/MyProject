@@ -400,7 +400,7 @@ $sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_nam
   while($row = mysqli_fetch_assoc($result)){
     
   $invoice_nb=$row['invoice_number'];
-  $suppl= $row['full_name'];
+  
   ?>
   
 
@@ -415,7 +415,7 @@ $sql="SELECT supplier.*, invoice.* FROM supplier  INNER JOIN invoice ON full_nam
 </td>
 <td style="text-align:center ;">
  <?php
-  $sql="SELECT supplier.*, customer.* FROM supplier  INNER JOIN customer ON full_name= supp_name  WHERE  full_name= '$suppl' ";
+  $sql="SELECT supplier.*, customer.* FROM supplier  INNER JOIN customer ON full_name= supp_name  WHERE  full_name= '$full_name' ";
 $result=mysqli_query($conn,$sql);
 while($row = mysqli_fetch_assoc($result)){
 

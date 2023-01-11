@@ -265,9 +265,20 @@ $primary_phone_number=$_POST['primary_phone_number2'];
                     <button name="search" class="btn btn-warning ms-5" type="submit">Search</button>
                  
                     </div>
-                   
+                  </div>
+                 
+
+
+
+     
+          
+            </div>
+          
+          </div>
+        </div></div>
+        <div class="col mt-3">
                     <div class="row mt-5" >
-        <div class="col" style = "position:relative; left:-800px; ">
+        <div class="col" style = "position:relative; left:450px; ">
         
            <div class="card shadow" style="width: 18rem;">
            <div class="card-body">
@@ -283,7 +294,10 @@ $primary_phone_number=$_POST['primary_phone_number2'];
 
 
             
-
+            <div class="mt-5">
+      <?php echo $suppliers; ?>
+      <a href="payment.php?id=<?php echo $row['full_name']; ?>" class='btn btn-warning ms-5' style="width: 160px;" >Payment</a>
+      </div>
             </div>
             
                   </div>
@@ -293,31 +307,7 @@ $primary_phone_number=$_POST['primary_phone_number2'];
 
             </div>
          
-
-          
-           
-
-           
-
-          </div>
-
-
-
-
-
-
-          </form>
-          
-          
-          
-        
-          
-          
-            </div>
-          
-          </div>
-        </div>
-
+          </div></div></div>
 
 
 
@@ -325,10 +315,7 @@ $primary_phone_number=$_POST['primary_phone_number2'];
    
 
 
-      <div class="mt-5">
-      <?php echo $suppliers; ?>
-      <a href="payment.php?id=<?php echo $row['full_name']; ?>" class='btn btn-warning ms-5' style="width: 350px;" >Payment</a>
-      </div>
+     
 
       <script>
    if ( window.history.replaceState ) {

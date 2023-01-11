@@ -56,22 +56,22 @@
 
     
  
-
+    if(isset($_POST['breakable']) == '1')
+    {
+      $sql44="insert into invoice (breakable) values('1') ";
+      $result = mysqli_query($conn,$sql44);
+    }
+    if(isset($_POST['returnn']) == '1')
+    {
+      $sql45="insert into invoice (returnn) values('1') ";
+      $result = mysqli_query($conn,$sql45);
+    }
   
 
     }
   }
   
-  if(isset($_POST['breakable']) == '1')
-  {
-    $sql44="insert into invoice (breakable) values('1') ";
-    $result = mysqli_query($conn,$sql44);
-  }
-  if(isset($_POST['returnn']) == '1')
-  {
-    $sql45="insert into invoice (returnn) values('1') ";
-    $result = mysqli_query($conn,$sql45);
-  }
+
 ?> 
 
 
